@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEAL MIND — Ingresar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index-style.css">
+</head>
+<body>
+
+<a href="#ingresar" class="skip-link">Saltar al contenido</a>
+
+<nav class="navbar">
+  <a href="landing.html" class="nav-logo">HEAL MIND</a>
+
+</nav>
+
+<main id="contenido">
+
+  <!-- Sección de ingreso -->
+  <section class="hero" id="ingresar">
+    <div class="auth-wrap">
+      <div class="auth-intro">
+        <div class="eyebrow mono">Accede a tu plan</div>
+        <h1 class="display">Ingresa a tu<br><em>transformación</em></h1>
+        <p>Inicia sesión para continuar tu rutina de entrenamiento y bienestar emocional.</p>
+
+        <ul class="auth-points">
+          <li><span class="pt-mark mono">01</span>Rutinas guiadas cada día</li>
+          <li><span class="pt-mark mono">02</span>Seguimiento de tu progreso</li>
+          <li><span class="pt-mark mono">03</span>Acompañamiento emocional</li>
+        </ul>
+      </div>
+
+  
+   
+
+    <div class="scroll-cue mono">
+      <span>SIGUE BAJANDO</span>
+      <div class="stem"></div>
+    </div>
+  </section>
+
+  <div id="origenes"></div>
+
+  <!-- Sección 1 — Quiénes somos -->
+  <a href="#" class="panel-link">
+   
+    <section class="panel" style="--sky1:#1e2b1c; --sky2:#4c6b3f;">
+      <div class="panel-media"></div>
+      <div class="panel-content">
+        <div class="region reveal">Conoce más de nosotros</div>
+        <h2 class="display reveal">HEAL MIND</h2>
+        <p class="reveal">Somos una plataforma dedicada a impulsar cambios positivos en la humanidad mediante la tecnología. Transformamos vidas ayudándote a construir una mente fuerte y un cuerpo saludable mediante el acompañamiento diario.</p>
+      </div>
+    </section>
+  </a>
+
+  <!-- Sección 2 — Nuestro propósito -->
+ 
+    <section class="panel" style="--sky1:#2b1e14; --sky2:#a0602f;">
+      <div class="panel-media"></div>
+      <div class="panel-content">
+        <div class="region reveal">¿Qué queremos para ti?</div>
+        <h2 class="display reveal">Disciplina con propósito</h2>
+        <p class="reveal">Queremos que tu experiencia en nuestra aplicación convierta la constancia en un estilo de vida divertido. Te brindamos las herramientas necesarias para superar el estrés, entrenar con enfoque y lograr una transformación real.</p>
+      </div>
+    </section>
+  </a>
+
+  <!-- Sección 3 — Enfoque integral -->
+  <a href="#" class="panel-link">
+    <section class="panel" style="--sky1:#1a1d2b; --sky2:#4a5a8f;">
+      <div class="panel-media"></div>
+      <div class="panel-content">
+        <div class="region reveal">Bienestar completo</div>
+        <h2 class="display reveal">Cuerpo y mente alineados</h2>
+        <p class="reveal">Combinamos entrenamientos físicos, ejercicios de enfoque mental y seguimiento de hábitos diarios para que alcances el máximo equilibrio en tu rutina.</p>
+      </div>
+    </section>
+  </a>
+
+  <!-- Sección Proceso -->
+  <a href="#" class="panel-link">
+    <section class="panel" id="proceso" style="--sky1:#140d08; --sky2:#3a2416;">
+      <div class="panel-media"></div>
+      <div class="panel-content" style="max-width:34rem;">
+        <div class="region reveal">Tu camino al cambio</div>
+        <h2 class="display reveal">Cuatro pasos para transformar tu vida</h2>
+        <p class="reveal">Evaluamos tus metas, te acompañamos a entrenar y enfocarte, medimos tu progreso día a día y te ayudamos a consolidar hábitos duraderos.</p>
+      </div>
+    </section>
+  </a>
+
+  <!-- Cierre -->
+  <section class="closing">
+    <div class="region mono">Empieza hoy</div>
+    <h3 class="display">Tu transformación te está esperando</h3>
+    <p>Inicia sesión y da el primer paso hacia una mente fuerte y un cuerpo saludable.</p>
+  </section>
+
+</main>
+
+<footer>
+  <span class="mono">CAMBIA TU VIDA — HEAL MIND · 2026</span>
+  <span>
+    <a href="politica-privacidad.html">Política y privacidad</a><a href="landing.html">Volver a la landing</a>
+  </span>
+</footer>
+
+<script>
+(() => {
+  const panels = document.querySelectorAll('.panel-media');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- Un solo listener de scroll: parallax ----
+  let ticking = false;
+
+  function update() {
+    if (!prefersReduced) {
+      panels.forEach((panel) => {
+        const rect = panel.getBoundingClientRect();
+        const centerOffset = rect.top + rect.height / 2 - window.innerHeight / 2;
+        const shift = Math.max(-40, Math.min(40, centerOffset * 0.06));
+        panel.style.transform = `translateY(${shift}px) scale(1.08)`;
+      });
+    }
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+
+  // ---- Revelado de texto por sección ----
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transition = 'opacity .9s ease, transform .9s ease';
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach((el) => { el.style.opacity = 1; el.style.transform = 'none'; });
+  }
+})();
+</script>
+</body>
+</html>

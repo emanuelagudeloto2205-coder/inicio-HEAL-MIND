@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librería Heal Mind</title>
+    <meta name="description" content="Catálogo curado de libros de desarrollo personal, mentalidad, hábitos, finanzas y comunicación. Lee gratis o compra tu próximo libro en Heal Mind.">
+    <link rel="stylesheet" href="libreriahmstyle.css">
+    <link rel="icon" href="HM-icono.ico">
+    <link rel="stylesheet" href="volverArriba.css">
+</head>
+
+<body>
+
+
+
+    <!-- encabezado principal, barra de navegación y hero de bienvenida -->
+    <header class="encabezado">
+
+        <nav class="barra-navegacion">
+            <a href="landing.html" class="logo">
+                <div class="logo-circle">
+                    <img src="HM-icono.ico" alt="Heal Mind">
+                </div>
+                Heal Mind
+            </a>
+
+        </nav>
+
+        <!-- Hero de bienvenida-->
+        <div class="contenido-principal container">
+            <div class="texto-bienvenida">
+                <div class="badge-bienvenida">Biblioteca digital · acceso libre</div>
+                <h1>LIBRERÍA <span>HEAL MIND</span></h1>
+                <p>Una selección curada de libros sobre desarrollo personal, mentalidad, hábitos y bienestar
+                    financiero. Lee en línea sin costo o consigue tu ejemplar, a tu propio ritmo.</p>
+                <div class="botones-accion">
+                    <a href="#catalogo" class="boton-cta primario">Ver el catálogo</a>
+                    <a href="#categorias" class="boton-cta secundario">Explorar temáticas</a>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- sección de temáticas-->
+    <section class="seccion-tematicas container" id="categorias">
+        <div class="tarjeta-tematica">
+            <div class="texto-tematica">
+                <h3>Explora por temática</h3>
+                <div class="chips-tematicas">
+                    <a href="#tema-desarrollo" class="chip-tematica">📚 Desarrollo personal <span class="chip-count" id="chip-desarrollo"></span></a>
+                    <a href="#tema-mentalidad" class="chip-tematica">🧠 Mentalidad <span class="chip-count" id="chip-mentalidad"></span></a>
+                    <a href="#tema-disciplina" class="chip-tematica">🔥 Disciplina y hábitos <span class="chip-count" id="chip-disciplina"></span></a>
+                    <a href="#tema-finanzas" class="chip-tematica">💰 Finanzas personales <span class="chip-count" id="chip-finanzas"></span></a>
+                    <a href="#tema-comunicacion" class="chip-tematica">🗣️ Comunicación <span class="chip-count" id="chip-comunicacion"></span></a>
+                    <a href="#tema-productividad" class="chip-tematica">🚀 Productividad y éxito <span class="chip-count" id="chip-productividad"></span></a>
+                    <a href="#tema-motivacion" class="chip-tematica">💪 Motivación <span class="chip-count" id="chip-motivacion"></span></a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+
+    <!--catálogo de libros-->
+    <main class="catalogo-libros container" id="catalogo">
+
+        <h2>Catálogo de libros</h2>
+        <p class="subtitulo-catalogo">Explora cada temática y encuentra tu próxima lectura</p>
+
+        <!-- Barra de búsqueda -->
+        <div class="wrapper-buscador">
+            <input type="text" id="buscador" class="input-buscador" placeholder="Buscar por título o autor…" aria-label="Buscar por título o autor">
+        </div>
+
+
+        <!--desarrollo personal-->
+        <section class="seccion-tema" id="tema-desarrollo">
+
+            <div class="header-tema">
+                <div class="icono-tema">📚</div>
+                <h3>Desarrollo personal</h3>
+                <span class="linea"></span>
+            </div>
+            <div class="grilla-libros">
+
+                <div class="tarjeta-libro" data-id="7habitos" data-titulo="Los 7 hábitos de la gente altamente efectiva">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="7habitos.jpg" alt="Portada de Los 7 hábitos de la gente altamente efectiva">
+                    <div class="info-libro">
+                        <p class="autor">Stephen Covey</p>
+                        <h3>Los 7 hábitos de la gente altamente efectiva</h3>
+                        <p>Ideas sobre cómo impulsar el cambio personal y construir hábitos duraderos.</p>
+                        <a href="https://www.colomos.ceti.mx/documentos/goe/los7HabitosGenteAltamenteEfectiva.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="masFuerte" data-titulo="Más fuerte que nunca">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="masfuerte.jpg" alt="Portada de Más fuerte que nunca">
+                    <div class="info-libro">
+                        <p class="autor">Brené Brown</p>
+                        <h3>Más fuerte que nunca</h3>
+                        <p>Guía práctica para superar fracasos y salir fortalecidos de las caídas emocionales.</p>
+                        <a href="https://proassetspdlcom.cdnstatics2.com/usuaris/libros_contenido/arxius/55/54642_Mas_fuerte_que_nunca.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="poderHabitos" data-titulo="El poder de los hábitos">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="poderHabitos.jpg" alt="Portada de El poder de los hábitos">
+                    <div class="info-libro">
+                        <p class="autor">Charles Duhigg</p>
+                        <h3>El poder de los hábitos</h3>
+                        <p>Explica la ciencia detrás de por qué hacemos lo que hacemos y cómo podemos cambiar nuestros hábitos para transformar nuestra vida.</p>
+                        <a href="https://vitalisgroupusa.com/wp-content/uploads/2022/08/El%20poder%20de%20los%20h%C3%A1bitos.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="obstaculoCamino" data-titulo="El obstáculo es el camino">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="obstaculoCamino.jpg" alt="Portada de El obstáculo es el camino">
+                    <div class="info-libro">
+                        <p class="autor">Ryan Holiday</p>
+                        <h3>El obstáculo es el camino</h3>
+                        <p>Basado en la filosofía estoica, enseña cómo convertir cada problema y adversidad en una oportunidad de crecimiento personal.</p>
+                        <a href="https://es.scribd.com/document/798360234/LO-ESENCIAL-de-El-Obstaculo-Es-El-Camino-El-Arte-Eterno-de-Convertir-Las-Pruebas-en-Triunfos" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="trampaFelicidad" data-titulo="La trampa de la felicidad">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="trampaFelicidad.jpg" alt="Portada de La trampa de la felicidad">
+                    <div class="info-libro">
+                        <p class="autor">Russ Harris</p>
+                        <h3>La trampa de la felicidad</h3>
+                        <p>Muestra cómo dejar de luchar contra los pensamientos negativos y construir una vida plena basada en tus valores reales.</p>
+                        <a href="https://planetadelibroscom.cdnstatics2.com/libros_contenido_extra/51/50692_La_trampa_de_la_felicidad.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="cuatroAcuerdos" data-titulo="Los cuatro acuerdos">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="cuatroAcuerdos.jpg" alt="Portada de Los cuatro acuerdos">
+                    <div class="info-libro">
+                        <p class="autor">Don Miguel Ruiz</p>
+                        <h3>Los cuatro acuerdos</h3>
+                        <p>Cuatro principios de sabiduría tolteca para liberarte de creencias limitantes y vivir con más libertad y felicidad.</p>
+                        <a href="https://www.formarse.com.ar/libros/libros_gratis/inspiradores/LOS4ACUERDOS.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="inteligenciaEmocional" data-titulo="Inteligencia emocional">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="inteligenciaEmocional.jpg" alt="Portada de Inteligencia emocional">
+                    <div class="info-libro">
+                        <p class="autor">Daniel Goleman</p>
+                        <h3>Inteligencia emocional</h3>
+                        <p>Explica por qué gestionar nuestras emociones es tan o más importante que el coeficiente intelectual para tener éxito en la vida.</p>
+                        <a href="https://densem.edu/HomePages/uploaded-files/466726/InteligenciaEmocionalDanielGolemanLibroCompletoGratis.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- mentalidad-->
+        <section class="seccion-tema" id="tema-mentalidad">
+            <div class="header-tema">
+                <div class="icono-tema">🧠</div>
+                <h3>Mentalidad (mindset)</h3>
+                <span class="linea"></span>
+            </div>
+            <div class="grilla-libros">
+
+                <div class="tarjeta-libro" data-id="mentesub" data-titulo="El poder de la mente subconsciente">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="mentesub.jpg" alt="Portada de El poder de la mente subconsciente">
+                    <div class="info-libro">
+                        <p class="autor">Joseph Murphy</p>
+                        <h3>El poder de la mente subconsciente</h3>
+                        <p>El subconsciente como fuerza interna que impulsa acciones, creencias y hábitos automáticos.</p>
+                        <a href="https://online.fliphtml5.com/lwif/avsc/#p=12" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="mindset" data-titulo="Mindset">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="mindset.jpg" alt="Portada de Mindset">
+                    <div class="info-libro">
+                        <p class="autor">Carol Dweck</p>
+                        <h3>Mindset</h3>
+                        <p>Explica cómo la mentalidad de crecimiento, creer que podemos mejorar nuestras habilidades, es la clave para alcanzar el éxito en cualquier área de la vida.</p>
+                        <a href="https://newteacherlibraryandtools.square.site/uploads/b/e4443390-f724-11ec-9291-b5b724deb1dc/MINDSET.%20LA%20ACTITUD%20DEL%20EXITO%20(CAROL%20S.%20DWECK%20[DWECK,%20CAROL%20S.])%20(z-lib.org).pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="noAmargarse" data-titulo="El arte de no amargarse la vida">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="noAmargarse.jpg" alt="Portada de El arte de no amargarse la vida">
+                    <div class="info-libro">
+                        <p class="autor">Rafael Santandreu</p>
+                        <h3>El arte de no amargarse la vida</h3>
+                        <p>Enseña a cambiar la forma en que interpretamos los problemas cotidianos para dejar de sufrir innecesariamente y vivir con más calma.</p>
+                        <a href="https://tavapy.gov.py/biblioteca/wp-content/uploads/2023/01/SantandreuR-El-arte-de-no-amargarse-la-vida.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="meditaciones" data-titulo="Meditaciones">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="menteEstoica.jpg" alt="Portada de Meditaciones">
+                    <div class="info-libro">
+                        <p class="autor">Marco Aurelio</p>
+                        <h3>Meditaciones</h3>
+                        <p>Reflexiones personales del emperador romano sobre cómo mantener la calma, actuar con virtud y enfrentar la vida con serenidad y fortaleza mental.</p>
+                        <a href="https://web.seducoahuila.gob.mx/biblioweb/upload/Marco%20Aurelio-Meditaciones.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="pienseEnGrande" data-titulo="La magia de pensar en grande">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="pienseEnGrande.jpg" alt="Portada de La magia de pensar en grande">
+                    <div class="info-libro">
+                        <p class="autor">David J. Schwartz</p>
+                        <h3>La magia de pensar en grande</h3>
+                        <p>Enseña que el volumen de tu éxito lo determina el volumen de tu creencia, y cómo desarrollar una mentalidad ambiciosa para lograr metas más grandes.</p>
+                        <a href="https://irp-cdn.multiscreensite.com/3af19a39/files/uploaded/La%20magia%20de%20pensar%20en%20grande%20-%20LIBROS%20DE%20MILLONARIOS.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="inteligenciaIntuitiva" data-titulo="Inteligencia intuitiva">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="inteligenciaIntuitiva.jpg" alt="Portada de Inteligencia intuitiva">
+                    <div class="info-libro">
+                        <p class="autor">Malcolm Gladwell</p>
+                        <h3>Inteligencia intuitiva</h3>
+                        <p>Explora cómo nuestro cerebro toma decisiones acertadas en segundos, y cómo entrenar la mente para confiar mejor en el instinto.</p>
+                        <a href="https://tavapy.gov.py/biblioteca/wp-content/uploads/2024/10/GladwellM-Inteligencia-intuitiva.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="biologiaCreencia" data-titulo="La biología de la creencia">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="biologiaCreencia.jpg" alt="Portada de La biología de la creencia">
+                    <div class="info-libro">
+                        <p class="autor">Bruce H. Lipton</p>
+                        <h3>La biología de la creencia</h3>
+                        <p>Un biólogo celular explica cómo nuestros pensamientos y creencias pueden influir directamente en nuestra biología y nuestra salud.</p>
+                        <a href="https://www.esferalibros.com/uploads/ficheros/libros/primeras-paginas/201604/primeras-paginas-paginas-del-libro_8-es.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- DISCIPLINA Y HÁBITOS-->
+        <section class="seccion-tema" id="tema-disciplina">
+            <div class="header-tema">
+                <div class="icono-tema">🔥</div>
+                <h3>Disciplina y hábitos</h3>
+                <span class="linea"></span>
+            </div>
+            <div class="grilla-libros">
+
+                <div class="tarjeta-libro" data-id="habitosAtomicos" data-titulo="Hábitos Atómicos">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="habitosatomicos.jpg" alt="Portada de Hábitos Atómicos">
+                    <div class="info-libro">
+                        <p class="autor">James Clear</p>
+                        <h3>Hábitos Atómicos</h3>
+                        <p>Cómo transformar la vida con mejoras del 1% diario mediante pequeños hábitos sostenibles.</p>
+                        <a href="https://librerialatina.co/wp-content/uploads/2024/04/HABITOS-ATOMICOS-JAMES-CLEAR.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="nuncaTerminar" data-titulo="Nunca terminar">
+                    <span class="etiqueta-libro etiqueta-comprar">Comprar</span>
+                    <img src="nunca terminar.jpg" alt="Portada de Nunca terminar">
+                    <div class="info-libro">
+                        <p class="autor">David Goggins</p>
+                        <h3>Nunca terminar</h3>
+                        <p>Cómo superar las "falsas cimas" para alcanzar el máximo potencial y la resistencia mental.</p>
+                        <a href="https://www.amazon.com/-/es/Nunca-terminar-Desencadena-interior-Spanish/dp/1544534701" target="_blank" rel="noopener" class="boton-leer">Comprar ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="club5manana" data-titulo="El club de las 5 de la mañana">
+                    <span class="etiqueta-libro etiqueta-comprar">Comprar</span>
+                    <img src="club5manana.jpg" alt="Portada de El club de las 5 de la mañana">
+                    <div class="info-libro">
+                        <p class="autor">Robin Sharma</p>
+                        <h3>El club de las 5 de la mañana</h3>
+                        <p>Propone levantarse a las 5 de la mañana para dedicar la primera hora del día al ejercicio, la reflexión y el aprendizaje, transformando así toda tu vida.</p>
+                        <a href="https://www.librerianacional.com/el-club-de-las-5-de-la-maana/p" target="_blank" rel="noopener" class="boton-leer">Comprar ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="disciplinaDestino" data-titulo="La disciplina marcará tu destino">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="disciplinadestino.jpg" alt="Portada de La disciplina marcará tu destino">
+                    <div class="info-libro">
+                        <p class="autor">Ryan Holiday</p>
+                        <h3>La disciplina marcará tu destino</h3>
+                        <p>El libro explica cómo la disciplina, el autocontrol y la constancia ayudan a superar las dificultades y alcanzar nuestras metas.</p>
+                        <a href="https://online.fliphtml5.com/kbynj/dgrj/#p=12" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="mejorQueNunca" data-titulo="Mejor que nunca">
+                    <span class="etiqueta-libro etiqueta-comprar">Comprar</span>
+                    <img src="mejorquenunca.jpg" alt="Portada de Mejor que nunca">
+                    <div class="info-libro">
+                        <p class="autor">Gretchen Rubin</p>
+                        <h3>Mejor que nunca</h3>
+                        <p>Explica cómo entender tu forma de ser para crear hábitos que realmente puedas mantener.</p>
+                        <a href="https://www.amazon.com/-/es/Mejor-nunca-Spanish-Gretchen-Rubin/dp/6071137179" target="_blank" rel="noopener" class="boton-leer">Comprar ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="regla5segundos" data-titulo="La regla de los 5 segundos">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="regla5segundos.jpg" alt="Portada de La regla de los 5 segundos">
+                    <div class="info-libro">
+                        <p class="autor">Mel Robbins</p>
+                        <h3>La regla de los 5 segundos</h3>
+                        <p>Una técnica simple para vencer la procrastinación y actuar de inmediato antes de que la duda te detenga.</p>
+                        <a href="https://proassetspdlcom.cdnstatics2.com/usuaris/libros_contenido/arxius/38/37839_El_poder_de_los_5_segundos.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="miniHabitos" data-titulo="Mini hábitos">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="miniHabitos.jpg" alt="Portada de Mini hábitos">
+                    <div class="info-libro">
+                        <p class="autor">Stephen Guise</p>
+                        <h3>Mini hábitos</h3>
+                        <p>Cómo lograr grandes resultados a partir de acciones tan pequeñas que resulta imposible fallar en cumplirlas.</p>
+                        <a href="https://pdfcoffee.com/mini-habitos-stephen-guise-z-library-2-pdf-free.html" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!--FINANZAS PERSONALES-->
+        <section class="seccion-tema" id="tema-finanzas">
+            <div class="header-tema">
+                <div class="icono-tema">💰</div>
+                <h3>Finanzas personales</h3>
+                <span class="linea"></span>
+            </div>
+            <div class="grilla-libros">
+
+                <div class="tarjeta-libro" data-id="padreRico" data-titulo="Padre rico, padre pobre">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="padrerico.jpg" alt="Portada de Padre rico, padre pobre">
+                    <div class="info-libro">
+                        <p class="autor">Robert Kiyosaki</p>
+                        <h3>Padre rico, padre pobre</h3>
+                        <p>Una visión diferente sobre el dinero, la inversión y cómo construir riqueza a largo plazo.</p>
+                        <a href="https://wadmin.uca.edu.ar/public/ckeditor/2015-Robert_Kiyosaki_-_Padre_Rico_Padre_Pobre.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="psicologiaDinero" data-titulo="La psicología del dinero">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="psicologiadinero.jpg" alt="Portada de La psicología del dinero">
+                    <div class="info-libro">
+                        <p class="autor">Morgan Housel</p>
+                        <h3>La psicología del dinero</h3>
+                        <p>Cómo el comportamiento y las emociones influyen más en las finanzas que los conocimientos técnicos.</p>
+                        <a href="https://criptoinforme.com/wp-content/uploads/2023/12/la-psicologia-del-dinero-morgan-housel.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="babilonia" data-titulo="El hombre más rico de Babilonia">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="babilonia.jpg" alt="Portada de El hombre más rico de Babilonia">
+                    <div class="info-libro">
+                        <p class="autor">George S. Clason</p>
+                        <h3>El hombre más rico de Babilonia</h3>
+                        <p>Principios atemporales de ahorro, inversión y prosperidad contados a través de parábolas.</p>
+                        <a href="https://dn710007.ca.archive.org/0/items/darkmaind_202405/El_hombre_mas_rico_de_Babilonia_George_S_Clason.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="menteMillonaria" data-titulo="Los secretos de la mente millonaria">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="menteMillonaria.jpg" alt="Portada de Los secretos de la mente millonaria">
+                    <div class="info-libro">
+                        <p class="autor">T. Harv Eker</p>
+                        <h3>Los secretos de la mente millonaria</h3>
+                        <p>Explica cómo el "plan de dinero" que llevamos en el subconsciente determina nuestro destino financiero, y cómo reprogramarlo para el éxito.</p>
+                        <a href="https://aesculapseguridaddelpaciente.org.mx/alianzapsqx/docs/quedate/libros/Los%20secretos%20de%20la%20mente%20millonaria.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="pasoDelanteWallStreet" data-titulo="Un paso por delante de Wall Street">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="pasoDelanteWallStreet.jpg" alt="Portada de Un paso por delante de Wall Street">
+                    <div class="info-libro">
+                        <p class="autor">Peter Lynch</p>
+                        <h3>Un paso por delante de Wall Street</h3>
+                        <p>El legendario inversor de Fidelity enseña cómo el inversor cotidiano puede detectar buenas oportunidades usando lo que ya conoce de su vida diaria.</p>
+                        <a href="https://riosmauricio.com/wp-content/uploads/2020/12/Un-paso-por-delante-de-Wall-Street.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="inversorInteligente" data-titulo="El inversor inteligente">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="inversorInteligente.jpg" alt="Portada de El inversor inteligente">
+                    <div class="info-libro">
+                        <p class="autor">Benjamin Graham</p>
+                        <h3>El inversor inteligente</h3>
+                        <p>Considerado la biblia de la inversión en valor; enseña a invertir con disciplina, largo plazo y control emocional en vez de especular.</p>
+                        <a href="https://elhacker.info/manuales/Libros%20emprendedores/EL%20INVERSOR%20INTELIGENTE%20-%20BENJAMIN%20GRAHAM.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!--COMUNICACIÓN-->
+        <section class="seccion-tema" id="tema-comunicacion">
+            <div class="header-tema">
+                <div class="icono-tema">🗣️</div>
+                <h3>Comunicación y habilidades sociales</h3>
+                <span class="linea"></span>
+            </div>
+            <div class="grilla-libros">
+
+                <div class="tarjeta-libro" data-id="ganarAmigos" data-titulo="Cómo ganar amigos e influir sobre las personas">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="ganarAmigos.jpg" alt="Portada de Cómo ganar amigos e influir sobre las personas">
+                    <div class="info-libro">
+                        <p class="autor">Dale Carnegie</p>
+                        <h3>Cómo ganar amigos e influir sobre las personas</h3>
+                        <p>Técnicas probadas para mejorar relaciones personales y profesionales a través de la comunicación.</p>
+                        <a href="https://ia803207.us.archive.org/11/items/libro-carnegie-dale-como-ganar-amigos-e-influir-en-las-personas_202005/LIBRO_CarnegieDale_%20Co%CC%81mo%20ganar%20amigos%20e%20influir%20en%20las%20personas.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="saberEscuchar" data-titulo="Saber escuchar">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="saberEscuchar.jpg" alt="Portada de Saber escuchar">
+                    <div class="info-libro">
+                        <p class="autor">Mark Goulston</p>
+                        <h3>Saber escuchar</h3>
+                        <p>Cómo conectar de verdad con las personas y lograr que se sientan comprendidas en cualquier conversación.</p>
+                        <a href="https://es.slideshare.net/slideshow/solo-escucha-libro-de-mark-goulston-pdf/277231801" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="hablarConCualquiera" data-titulo="Cómo hablar con cualquiera">
+                    <span class="etiqueta-libro etiqueta-comprar">Comprar</span>
+                    <img src="hablarConCualquiera.jpg" alt="Portada de Cómo hablar con cualquiera">
+                    <div class="info-libro">
+                        <p class="autor">Leil Lowndes</p>
+                        <h3>Cómo hablar con cualquiera</h3>
+                        <p>92 trucos para causar una gran impresión, conectar con desconocidos y dominar cualquier situación social.</p>
+                        <a href="https://www.buscalibre.com.co/libro-como-hablar-con-cualquiera/9788408313588/p/64708701" target="_blank" rel="noopener" class="boton-leer">Comprar ahora</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!--PRODUCTIVIDAD Y ÉXITO-->
+        <section class="seccion-tema" id="tema-productividad">
+            <div class="header-tema">
+                <div class="icono-tema">🚀</div>
+                <h3>Productividad y éxito</h3>
+                <span class="linea"></span>
+            </div>
+            <div class="grilla-libros">
+
+                <div class="tarjeta-libro" data-id="loUnico" data-titulo="Lo único">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="loUnico.jpg" alt="Portada de Lo único">
+                    <div class="info-libro">
+                        <p class="autor">Gary Keller</p>
+                        <h3>Lo único</h3>
+                        <p>La pregunta enfocada que lleva a una productividad extraordinaria eliminando lo que no importa.</p>
+                        <a href="https://es.slideshare.net/slideshow/solo-una-cosa-en-espanolpdf/265839533" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="trabajoProfundo" data-titulo="Trabajo profundo">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="trabajoProfundo.jpg" alt="Portada de Trabajo profundo">
+                    <div class="info-libro">
+                        <p class="autor">Cal Newport</p>
+                        <h3>Trabajo profundo</h3>
+                        <p>Reglas para el éxito en un mundo distraído: cómo enfocarse sin interrupciones para lograr resultados excepcionales.</p>
+                        <a href="https://proassetspdlcom.cdnstatics2.com/usuaris/libros_contenido/arxius/49/48820_Centrate_Deep_Work.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="gtd" data-titulo="Organízate con eficacia (GTD)">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="gtd.jpg" alt="Portada de Organízate con eficacia">
+                    <div class="info-libro">
+                        <p class="autor">David Allen</p>
+                        <h3>Organízate con eficacia (GTD)</h3>
+                        <p>El sistema de productividad más popular del mundo para vaciar la mente y gestionar tareas sin estrés.</p>
+                        <a href="https://www.librerianacional.com/organizate-con-eficacia-412388/p" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!--MOTIVACIÓN E INSPIRACIÓN-->
+        <section class="seccion-tema" id="tema-motivacion">
+            <div class="header-tema">
+                <div class="icono-tema">💪</div>
+                <h3>Motivación e inspiración</h3>
+                <span class="linea"></span>
+            </div>
+            <div class="grilla-libros">
+
+                <div class="tarjeta-libro" data-id="noPuedesLastimar" data-titulo="No me puedes lastimar">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="noPuedesLastimar.jpg" alt="Portada de No me puedes lastimar">
+                    <div class="info-libro">
+                        <p class="autor">David Goggins</p>
+                        <h3>No me puedes lastimar</h3>
+                        <p>La historia de superación de Goggins y cómo forjó su mente para superar cualquier obstáculo.</p>
+                        <a href="https://es.slideshare.net/slideshow/no-me-puedes-lastimar-by-david-goggins-pdf/286313050" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="hombreSentido" data-titulo="El hombre en busca de sentido">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="hombreSentido.jpg" alt="Portada de El hombre en busca de sentido">
+                    <div class="info-libro">
+                        <p class="autor">Viktor Frankl</p>
+                        <h3>El hombre en busca de sentido</h3>
+                        <p>Una experiencia de supervivencia extrema que enseña cómo encontrar propósito incluso en las peores circunstancias.</p>
+                        <a href="https://unsecretogigantesco.com/wp-content/uploads/2023/03/Frankl-Viktor-El-hombre-en-busca-de-sentido.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+                <div class="tarjeta-libro" data-id="monjeFerrari" data-titulo="El monje que vendió su Ferrari">
+                    <span class="etiqueta-libro etiqueta-gratis">Gratis</span>
+                    <img src="monjeFerrari.jpg" alt="Portada de El monje que vendió su Ferrari">
+                    <div class="info-libro">
+                        <p class="autor">Robin Sharma</p>
+                        <h3>El monje que vendió su Ferrari</h3>
+                        <p>Una fábula sobre cómo encontrar el equilibrio, la paz interior y vivir con propósito y plenitud.</p>
+                        <a href="https://librerialatina.co/wp-content/uploads/2024/04/EL-MONJE-QUE-VENDIO-SU-FERRARI-AUTOR-ROBIN-SHARMA.pdf" target="_blank" rel="noopener" class="boton-leer">Leer ahora</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!--PIE DE PÁGINA-->
+    <footer class="footer">
+        <button id="btn-volver-arriba" onclick="volverArriba()" title="Volver arriba" aria-label="Volver arriba">↑</button>
+        <p>© 2026 <strong>Librería Heal Mind</strong> · Todos los derechos reservados · Medellín, Colombia</p>
+    </footer>
+
+    <script src="volverArriba.js"></script>
+    <script src="contadorChips.js"></script>
+    <script src="buscador.js"></script>
+</body>
+</html>

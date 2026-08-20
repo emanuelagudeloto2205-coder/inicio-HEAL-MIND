@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEAL MIND — Inicia sesión o crea tu cuenta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,500;1,400&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+<a href="#formulario" class="skip-link">Saltar al formulario</a>
+
+<div id="topbar">
+  <a href="landing.html" class="brand display">HEAL MIND</a>
+  <a href="landing.html" class="back mono">← Volver al inicio</a>
+</div>
+
+<main class="auth-shell">
+
+  <!-- Panel izquierdo — identidad / atmósfera -->
+  <section class="intro-panel" aria-hidden="false">
+
+
+
+    <div class="intro-content">
+   
+      <h1 class="display">Tu progreso<br><em>te está esperando.</em></h1>
+      <p>Cada sesión que registras suma a una racha real. Entra para retomar tu plan, ver tus hábitos y seguir construyendo la mejor versión de ti.</p>
+
+
+    </div>
+  </section>
+
+  <!-- Panel derecho — formulario -->
+  <section class="form-panel" id="formulario">
+    <div class="form-card">
+
+      <div class="tabs" role="tablist" aria-label="Acceso a la cuenta">
+        <button class="tab is-active mono" id="tab-login" role="tab" aria-selected="true" aria-controls="panel-login" type="button">Iniciar sesión</button>
+        <button class="tab mono" id="tab-signup" role="tab" aria-selected="false" aria-controls="panel-signup" type="button">Crear cuenta</button>
+        <span class="tab-indicator" aria-hidden="true"></span>
+      </div>
+
+      <!-- LOGIN -->
+      <form id="panel-login" class="auth-form" role="tabpanel" aria-labelledby="tab-login" onsubmit="return false;">
+        <h2 class="display">Bienvenido de nuevo</h2>
+        <p class="sub">Accede para continuar tu transformación.</p>
+
+        <label class="field">
+          <span class="mono label-text">Correo electrónico</span>
+          <input type="email" name="email" placeholder="tu@correo.com" autocomplete="email" required>
+        </label>
+
+        <label class="field">
+          <span class="mono label-text">Contraseña</span>
+          <div class="password-wrap">
+            <input type="password" name="password" placeholder="••••••••" autocomplete="current-password" minlength="8" required>
+            <button type="button" class="toggle-pass mono" aria-label="Mostrar contraseña">Ver</button>
+          </div>
+        </label>
+
+        <div class="row-between">
+          <label class="check">
+            <input type="checkbox" name="remember">
+            <span>Recordarme</span>
+          </label>
+          <a href="#" class="link mono">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <button type="submit" class="btn btn-solid btn-block"><a href="index.html">Iniciar sesión</a></button>
+        <div class="divider"><span>o continúa con</span></div>
+
+        <div class="social-row">
+          <button type="button" class="btn btn-outline btn-social">Google</button>
+          
+        </div>
+
+        <p class="switch-line">¿Aún no tienes cuenta? <button type="button" class="link-strong mono" data-switch="signup">Regístrate</button></p>
+      </form>
+
+      <!-- SIGNUP -->
+      <form id="panel-signup" class="auth-form is-hidden" role="tabpanel" aria-labelledby="tab-signup" onsubmit="return false;">
+        <h2 class="display">Empieza tu cambio</h2>
+        <p class="sub">Crea tu cuenta y diseña tu plan a medida.</p>
+
+        <label class="field">
+          <span class="mono label-text">Nombre completo</span>
+          <input type="text" name="name" placeholder="Tu nombre" autocomplete="name" required>
+        </label>
+
+        <label class="field">
+          <span class="mono label-text">Correo electrónico</span>
+          <input type="email" name="email" placeholder="tu@correo.com" autocomplete="email" required>
+        </label>
+
+        <label class="field">
+          <span class="mono label-text">Contraseña</span>
+          <div class="password-wrap">
+            <input type="password" name="password" placeholder="Mínimo 8 caracteres" autocomplete="new-password" minlength="8" required>
+            <button type="button" class="toggle-pass mono" aria-label="Mostrar contraseña">Ver</button>
+          </div>
+        </label>
+
+        <label class="check">
+          <input type="checkbox" name="terms" required>
+          <span>Acepto la <a href="politica-privacidad.html" class="link">política y privacidad</a></span>
+        </label>
+
+        <button type="submit" class="btn btn-solid btn-block"><a href="index.html">Crear cuenta</a></button>
+
+        <p class="switch-line">¿Ya tienes cuenta? <button type="button" class="link-strong mono" data-switch="login">Inicia sesión</button></p>
+      </form>
+
+    </div>
+
+    <p class="foot-note mono">CAMBIA TU VIDA — HEAL MIND · 2026</p>
+  </section>
+
+</main>
+
+<script>
+  // ---- Alternar entre pestañas login / signup ----
+  const tabLogin = document.getElementById('tab-login');
+  const tabSignup = document.getElementById('tab-signup');
+  const panelLogin = document.getElementById('panel-login');
+  const panelSignup = document.getElementById('panel-signup');
+  const indicator = document.querySelector('.tab-indicator');
+
+  function showPanel(which) {
+    const toSignup = which === 'signup';
+    tabLogin.classList.toggle('is-active', !toSignup);
+    tabSignup.classList.toggle('is-active', toSignup);
+    tabLogin.setAttribute('aria-selected', String(!toSignup));
+    tabSignup.setAttribute('aria-selected', String(toSignup));
+    panelLogin.classList.toggle('is-hidden', toSignup);
+    panelSignup.classList.toggle('is-hidden', !toSignup);
+    indicator.classList.toggle('is-right', toSignup);
+  }
+
+  tabLogin.addEventListener('click', () => showPanel('login'));
+  tabSignup.addEventListener('click', () => showPanel('signup'));
+  document.querySelectorAll('[data-switch]').forEach(btn => {
+    btn.addEventListener('click', () => showPanel(btn.dataset.switch));
+  });
+
+  // ---- Mostrar / ocultar contraseña ----
+  document.querySelectorAll('.toggle-pass').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const input = btn.previousElementSibling;
+      const isPass = input.type === 'password';
+      input.type = isPass ? 'text' : 'password';
+      btn.textContent = isPass ? 'Ocultar' : 'Ver';
+    });
+  });
+</script>
+</body>
+</html>
