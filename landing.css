@@ -2,9 +2,9 @@
     --ink:#f1e7d8;
     --ink-dim:#b6a58c;
     --bg:#1c130d;
-    --bg2:#140d08;
+    --bg2:#ac643000;
     --copper:#b5652e;
-    --green:#7c9a68;
+  
     --line: rgba(241,231,216,0.14);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
