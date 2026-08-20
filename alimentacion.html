@@ -1,12 +1,580 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="alimentacion.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alimentación — Categoría</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,600&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="alimentacion.css">
+<link rel="stylesheet" href="index.css">
+    <div id="hm-chat-root"></div>
+<script src="IA.js"></script>
 </head>
 <body>
-    j
+
+<a class="home-btn" href="index.html">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  Inicio
+</a>
+
+<header class="hero">
+  <div class="grain-texture"></div>
+  <div class="steam" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Categoría 03 · Nutrición</span>
+    <h1>Alimen<em>tación</em></h1>
+    <p>Todo lo que comes es información para tu cuerpo. Encuentra los macronutrientes de decenas de alimentos base, recetas reales por objetivo, y calcula tus macros exactos según tu peso, estatura y edad.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num" id="statFoods">0</div><div class="lbl">Alimentos</div></div>
+      <div class="hero-stat"><div class="num" id="statRecipes">0</div><div class="lbl">Recetas</div></div>
+      <div class="hero-stat"><div class="num">3</div><div class="lbl">Objetivos</div></div>
+    </div>
+  </div>
+</header>
+
+<nav class="goal-nav" id="goalNav">
+  <button class="goal-btn active" data-goal="perder">
+    <span class="tag">Objetivo</span>
+    <div class="title">Perder grasa</div>
+  </button>
+  <button class="goal-btn" data-goal="ganar">
+    <span class="tag">Objetivo</span>
+    <div class="title">Ganar músculo</div>
+  </button>
+  <button class="goal-btn" data-goal="mantener">
+    <span class="tag">Objetivo</span>
+    <div class="title">Mantenerse</div>
+  </button>
+</nav>
+
+<section id="macros">
+  <div class="section-head">
+    <span class="kicker">Calculadora personal</span>
+    <h2>Tus macros reales</h2>
+    <p>Ingresa tu peso, estatura, edad y nivel de actividad. Combinado con el objetivo que elegiste arriba, calculamos tus calorías y gramos de cada macronutriente. Mientras no ingreses tus datos, el panel se queda en cero.</p>
+  </div>
+  <div class="macro-grid">
+    <div class="calc-card">
+      <h3>Calcula tus macros</h3>
+      <div class="sub">Usamos la fórmula Mifflin-St Jeor para tu gasto energético.</div>
+      <div class="field">
+        <label for="sexToggleGroup">Sexo</label>
+        <div class="sex-toggle" id="sexToggleGroup" role="group" aria-label="Sexo">
+          <button type="button" class="active" data-sex="hombre">Hombre</button>
+          <button type="button" data-sex="mujer">Mujer</button>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="inpWeight">Peso (kg)</label>
+          <input type="number" id="inpWeight" min="30" max="300" placeholder="70">
+        </div>
+        <div class="field">
+          <label for="inpHeight">Estatura (cm)</label>
+          <input type="number" id="inpHeight" min="120" max="230" placeholder="170">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="inpAge">Edad</label>
+          <input type="number" id="inpAge" min="14" max="90" placeholder="25">
+        </div>
+        <div class="field">
+          <label for="inpActivity">Actividad</label>
+          <select id="inpActivity">
+            <option value="1.2">Sedentario</option>
+            <option value="1.375">Ligera (1-3 d/sem)</option>
+            <option value="1.55" selected>Moderada (3-5 d/sem)</option>
+            <option value="1.725">Alta (6-7 d/sem)</option>
+          </select>
+        </div>
+      </div>
+      <button class="calc-btn" id="calcBtn">Calcular mis macros</button>
+      <div class="calc-result" id="calcResult">Completa tus datos y presiona el botón para ver tu resultado. Hasta entonces, el panel de la derecha se mantiene en cero.</div>
+    </div>
+
+    <div class="macro-panel">
+      <div class="rings-wrap">
+        <svg viewBox="0 0 220 220">
+          <circle class="track" cx="110" cy="110" r="94"></circle>
+          <circle class="ring-p" id="ringP" cx="110" cy="110" r="94"></circle>
+          <circle class="track" cx="110" cy="110" r="70"></circle>
+          <circle class="ring-c" id="ringC" cx="110" cy="110" r="70"></circle>
+          <circle class="track" cx="110" cy="110" r="46"></circle>
+          <circle class="ring-g" id="ringG" cx="110" cy="110" r="46"></circle>
+        </svg>
+        <div class="rings-center">
+          <div class="kcal pending" id="kcalNum">0</div>
+          <div class="kcal-lbl">kcal / día</div>
+        </div>
+      </div>
+      <div class="macro-legend">
+        <div class="goal-note" id="goalNote"></div>
+        <div class="legend-row"><span class="dot p"></span><span class="name">Proteína</span><span><span class="pct pending" id="pctP">—</span><span class="grams pending" id="gramsP"></span></span></div>
+        <div class="legend-row"><span class="dot c"></span><span class="name">Carbohidratos</span><span><span class="pct pending" id="pctC">—</span><span class="grams pending" id="gramsC"></span></span></div>
+        <div class="legend-row"><span class="dot g"></span><span class="name">Grasas</span><span><span class="pct pending" id="pctG">—</span><span class="grams pending" id="gramsG"></span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="recetas">
+  <div class="section-head">
+    <span class="kicker">Cocina</span>
+    <h2>Recetas para tu objetivo</h2>
+    <p>Toca una receta para ver ingredientes, pasos y macros por porción.</p>
+  </div>
+  <div class="recipe-grid" id="recipeGrid"></div>
+</section>
+
+<section id="alimentos">
+  <div class="section-head">
+    <span class="kicker">Base de datos</span>
+    <h2>Alimentos y sus macros</h2>
+    <p>Valores por cada 100 g. Toca una tarjeta para voltearla y ver el detalle.</p>
+  </div>
+  <div class="chip-row" id="chipRow">
+    <button class="chip active" data-cat="todos">Todos</button>
+    <button class="chip" data-cat="proteina">Proteínas</button>
+    <button class="chip" data-cat="carbohidrato">Carbohidratos</button>
+    <button class="chip" data-cat="grasa">Grasas</button>
+    <button class="chip" data-cat="vegetal">Vegetales</button>
+  </div>
+  <div class="food-grid" id="foodGrid"></div>
+</section>
+
+<footer>
+  <strong>Alimentación</strong><br>
+  Parte de tu panel de hábitos · datos nutricionales aproximados y calculadora orientativa, ajusta según tu caso o consulta a un profesional.
+</footer>
+
+<script>
+  // -------- Datos de objetivos (kcal por defecto y % de macros) --------
+  const goals = {
+    perder: {
+      label:"Perder grasa", p:40, c:30, g:30, mult:0.8,
+      note:"Déficit moderado con proteína alta para preservar músculo mientras bajas de peso."
+    },
+    ganar: {
+      label:"Ganar músculo", p:30, c:45, g:25, mult:1.15,
+      note:"Superávit calórico con carbohidratos altos para rendir en el entrenamiento y recuperar."
+    },
+    mantener: {
+      label:"Mantenerse", p:30, c:40, g:30, mult:1.0,
+      note:"Calorías en equilibrio: ni sobra ni falta, ideal para sostener composición corporal."
+    }
+  };
+  const pendingNote = "Ingresa tu peso, estatura, edad y actividad, y presiona “Calcular mis macros” para ver aquí tus calorías y gramos reales.";
+
+  // -------- Recetas --------
+  const recipes = [
+    // Perder grasa
+    {goal:"perder", icon:"🍗", name:"Bowl de pollo y brócoli", time:"20 min", kcal:410, p:48, c:22, g:12,
+      ingredients:["200 g pechuga de pollo","150 g brócoli al vapor","80 g arroz integral cocido","Limón, ajo y especias al gusto"],
+      steps:["Sazona y cocina el pollo a la plancha 6-8 min por lado.","Cocina el brócoli al vapor 5 minutos.","Sirve sobre el arroz y agrega limón."]},
+    {goal:"perder", icon:"🍳", name:"Tortilla de claras y espinaca", time:"12 min", kcal:230, p:30, c:6, g:8,
+      ingredients:["5 claras de huevo","1 huevo entero","50 g espinaca","Sal y pimienta"],
+      steps:["Bate las claras con el huevo entero.","Saltea la espinaca 1 minuto.","Vierte el huevo, cocina a fuego bajo tapado 4 min."]},
+    {goal:"perder", icon:"🥗", name:"Ensalada de atún y lentejas", time:"10 min", kcal:360, p:34, c:28, g:10,
+      ingredients:["1 lata de atún al agua","100 g lentejas cocidas","Tomate, cebolla, cilantro","Aceite de oliva 1 cdita"],
+      steps:["Escurre el atún y mezcla con las lentejas.","Agrega vegetales picados.","Aliña con aceite y limón."]},
+    {goal:"perder", icon:"🍲", name:"Sopa de pavo y vegetales", time:"30 min", kcal:340, p:32, c:24, g:10,
+      ingredients:["200 g pavo molido","Zanahoria y calabacín","Caldo de vegetales","Cebolla y ajo"],
+      steps:["Dora el pavo en una olla.","Agrega los vegetales picados y el caldo.","Cocina 20 minutos a fuego medio."]},
+    {goal:"perder", icon:"🦐", name:"Camarones salteados con calabacín", time:"15 min", kcal:300, p:34, c:10, g:12,
+      ingredients:["220 g camarones","1 calabacín en tiras","Ajo","Aceite de oliva 1 cdita","Limón"],
+      steps:["Saltea el ajo en el aceite.","Agrega los camarones 3-4 minutos.","Añade el calabacín y cocina 3 minutos más."]},
+    {goal:"perder", icon:"🧆", name:"Ensalada de garbanzos y pepino", time:"10 min", kcal:350, p:16, c:45, g:12,
+      ingredients:["150 g garbanzos cocidos","Pepino y tomate","Cebolla morada","Aceite de oliva y limón"],
+      steps:["Mezcla los garbanzos con los vegetales picados.","Aliña con aceite y limón.","Sirve frío."]},
+    {goal:"perder", icon:"🥑", name:"Ensalada de camarones y aguacate", time:"15 min", kcal:340, p:32, c:10, g:18,
+      ingredients:["200 g camarones cocidos","1/2 aguacate","Lechuga variada","Limón y sal"],
+      steps:["Cocina los camarones a la plancha.","Corta el aguacate en cubos.","Mezcla todo con la lechuga y aliña con limón."]},
+    {goal:"perder", icon:"🥦", name:"Pechuga al horno con coliflor", time:"30 min", kcal:330, p:40, c:12, g:10,
+      ingredients:["200 g pechuga de pollo","200 g coliflor","Especias al gusto","Aceite en spray"],
+      steps:["Sazona la pechuga y hornea 25 min a 200°C.","Asa la coliflor junto al pollo.","Sirve caliente."]},
+    {goal:"perder", icon:"🐠", name:"Salmón al vapor con espárragos", time:"20 min", kcal:380, p:36, c:8, g:20,
+      ingredients:["180 g salmón","150 g espárragos","Limón y eneldo","Sal y pimienta"],
+      steps:["Cocina el salmón al vapor 10-12 min.","Cocina los espárragos al vapor 6 min.","Sirve con limón y eneldo."]},
+    {goal:"perder", icon:"🍄", name:"Tortilla de claras con champiñones", time:"12 min", kcal:220, p:26, c:8, g:8,
+      ingredients:["4 claras de huevo","100 g champiñones","1/4 cebolla","Especias al gusto"],
+      steps:["Saltea los champiñones y la cebolla.","Agrega las claras batidas.","Cocina tapado a fuego bajo 4 min."]},
+
+    // Ganar músculo
+    {goal:"ganar", icon:"🥣", name:"Avena proteica con plátano", time:"8 min", kcal:520, p:28, c:70, g:14,
+      ingredients:["70 g avena","1 scoop proteína en polvo","1 plátano","20 g almendras"],
+      steps:["Cocina la avena con agua o leche.","Añade la proteína en polvo fuera del fuego.","Corona con plátano y almendras."]},
+    {goal:"ganar", icon:"🐠", name:"Salmón con batata asada", time:"30 min", kcal:610, p:38, c:45, g:24,
+      ingredients:["180 g salmón","200 g batata en cubos","Aceite de oliva","Romero"],
+      steps:["Hornea la batata 25 min a 200°C.","Sella el salmón 4 min por lado.","Sirve junto con romero y aceite."]},
+    {goal:"ganar", icon:"🥑", name:"Arroz, pollo y aguacate", time:"25 min", kcal:680, p:45, c:65, g:20,
+      ingredients:["200 g pechuga de pollo","150 g arroz integral cocido","1/2 aguacate","Salsa de soja baja en sodio"],
+      steps:["Cocina el pollo en trozos con soja.","Sirve sobre el arroz.","Agrega el aguacate en láminas."]},
+    {goal:"ganar", icon:"🥤", name:"Batido de proteína con avena y maní", time:"5 min", kcal:480, p:35, c:50, g:16,
+      ingredients:["1 scoop proteína whey","50 g avena","1 cda mantequilla de maní","250 ml leche","1 plátano"],
+      steps:["Coloca todos los ingredientes en la licuadora.","Licúa hasta que quede homogéneo.","Sirve de inmediato."]},
+    {goal:"ganar", icon:"🥩", name:"Carne de res con papa y frijoles", time:"35 min", kcal:650, p:42, c:60, g:20,
+      ingredients:["180 g carne de res magra","200 g papa cocida","100 g frijoles negros cocidos","Especias al gusto"],
+      steps:["Cocina la carne a la plancha.","Hierve la papa hasta que esté suave.","Sirve todo junto con los frijoles."]},
+    {goal:"ganar", icon:"🍄", name:"Tofu salteado con quinoa y maní", time:"20 min", kcal:560, p:28, c:65, g:18,
+      ingredients:["200 g tofu firme","150 g quinoa cocida","Maní picado","Salsa de soja y vegetales al gusto"],
+      steps:["Saltea el tofu en cubos hasta dorar.","Mezcla con la quinoa y vegetales.","Añade salsa de soja y maní picado."]},
+    {goal:"ganar", icon:"🍝", name:"Pasta con carne molida y queso", time:"25 min", kcal:700, p:42, c:70, g:22,
+      ingredients:["150 g pasta integral cocida","180 g carne molida","Salsa de tomate","30 g queso mozzarella"],
+      steps:["Cocina la pasta según el paquete.","Dora la carne y mézclala con la salsa.","Combina con la pasta y gratina el queso."]},
+    {goal:"ganar", icon:"🍣", name:"Bowl de arroz, salmón y edamame", time:"25 min", kcal:660, p:40, c:60, g:24,
+      ingredients:["180 g salmón","150 g arroz cocido","80 g edamame","Salsa de soja"],
+      steps:["Sella el salmón 4 min por lado.","Cocina el edamame al vapor.","Sirve todo sobre el arroz con salsa de soja."]},
+    {goal:"ganar", icon:"🥞", name:"Tortitas de avena y proteína con miel", time:"15 min", kcal:540, p:35, c:65, g:12,
+      ingredients:["80 g avena","1 scoop proteína en polvo","2 huevos","Miel al gusto"],
+      steps:["Licúa la avena, la proteína y los huevos.","Cocina tortitas pequeñas en sartén antiadherente.","Sirve calientes con miel."]},
+    {goal:"ganar", icon:"🌯", name:"Wrap de carne y arroz", time:"25 min", kcal:640, p:40, c:60, g:20,
+      ingredients:["1 tortilla integral grande","180 g carne molida","120 g arroz cocido","30 g queso rallado"],
+      steps:["Cocina la carne molida sazonada.","Calienta la tortilla.","Rellena con arroz, carne y queso, enrolla."]},
+
+    // Mantenerse
+    {goal:"mantener", icon:"🥣", name:"Yogur griego con avena", time:"5 min", kcal:380, p:24, c:42, g:12,
+      ingredients:["200 g yogur griego natural","40 g avena","10 g nueces","Miel opcional"],
+      steps:["Mezcla el yogur con la avena.","Deja reposar 5 minutos.","Agrega nueces y miel al gusto."]},
+    {goal:"mantener", icon:"🌯", name:"Wrap de pavo y vegetales", time:"10 min", kcal:420, p:32, c:38, g:14,
+      ingredients:["1 tortilla integral","120 g pechuga de pavo","Lechuga, tomate, zanahoria","Mostaza"],
+      steps:["Calienta ligeramente la tortilla.","Rellena con el pavo y los vegetales.","Enrolla y corta a la mitad."]},
+    {goal:"mantener", icon:"🥙", name:"Bowl mediterráneo de lentejas", time:"15 min", kcal:450, p:22, c:52, g:16,
+      ingredients:["150 g lentejas cocidas","Pepino, tomate, cebolla morada","30 g queso feta","Aceite de oliva"],
+      steps:["Mezcla las lentejas con los vegetales picados.","Añade el queso feta en cubos.","Aliña con aceite de oliva y orégano."]},
+    {goal:"mantener", icon:"🥑", name:"Tostadas integrales con huevo y aguacate", time:"10 min", kcal:400, p:20, c:34, g:20,
+      ingredients:["2 rebanadas de pan integral","2 huevos","1/2 aguacate","Sal y pimienta"],
+      steps:["Tuesta el pan integral.","Cocina los huevos como prefieras.","Sirve con el aguacate en láminas."]},
+    {goal:"mantener", icon:"🥗", name:"Ensalada de quinoa con pollo", time:"20 min", kcal:430, p:32, c:40, g:14,
+      ingredients:["150 g pechuga de pollo","120 g quinoa cocida","Tomate y pepino","Aceite de oliva"],
+      steps:["Cocina el pollo a la plancha y córtalo en tiras.","Mezcla con la quinoa y los vegetales.","Aliña con aceite de oliva."]},
+    {goal:"mantener", icon:"🍝", name:"Pasta integral con atún y tomate", time:"18 min", kcal:420, p:30, c:50, g:10,
+      ingredients:["100 g pasta integral cocida","1 lata de atún al agua","Tomate triturado","Ajo y orégano"],
+      steps:["Cocina la pasta según el paquete.","Saltea el ajo con el tomate triturado.","Mezcla con el atún y la pasta."]},
+    {goal:"mantener", icon:"🥗", name:"Ensalada César con pollo", time:"15 min", kcal:420, p:34, c:20, g:22,
+      ingredients:["150 g pechuga de pollo","Lechuga romana","Queso parmesano","Aderezo césar ligero"],
+      steps:["Cocina el pollo a la plancha y córtalo en tiras.","Pica la lechuga romana.","Mezcla todo con el aderezo y el parmesano."]},
+    {goal:"mantener", icon:"🍲", name:"Bowl de tofu y vegetales salteados", time:"20 min", kcal:400, p:22, c:40, g:16,
+      ingredients:["180 g tofu firme","Brócoli","Zanahoria","Salsa de soja"],
+      steps:["Saltea el tofu en cubos hasta dorar.","Agrega el brócoli y la zanahoria.","Cocina 5 minutos más con la salsa de soja."]},
+    {goal:"mantener", icon:"🥪", name:"Sandwich de pavo y aguacate", time:"10 min", kcal:410, p:28, c:36, g:16,
+      ingredients:["2 rebanadas de pan integral","100 g pechuga de pavo","1/2 aguacate","Lechuga"],
+      steps:["Tuesta el pan si lo prefieres.","Machaca el aguacate y úntalo en el pan.","Arma el sandwich con el pavo y la lechuga."]},
+    {goal:"mantener", icon:"🐠", name:"Bowl de salmón y quinoa", time:"20 min", kcal:440, p:30, c:38, g:18,
+      ingredients:["160 g salmón","120 g quinoa cocida","Espinaca fresca","Limón"],
+      steps:["Cocina el salmón a la plancha 4 min por lado.","Mezcla la quinoa con la espinaca.","Sirve el salmón encima y aliña con limón."]},
+  ];
+
+  // -------- Alimentos --------
+  const foods = [
+    // Proteínas
+    {name:"Pechuga de pollo", cat:"proteina", icon:"🍗", kcal:165, p:31, c:0, g:3.6},
+    {name:"Huevo entero", cat:"proteina", icon:"🥚", kcal:155, p:13, c:1.1, g:11},
+    {name:"Claras de huevo", cat:"proteina", icon:"🥚", kcal:52, p:11, c:0.7, g:0.2},
+    {name:"Atún al agua", cat:"proteina", icon:"🐟", kcal:132, p:28, c:0, g:1},
+    {name:"Salmón", cat:"proteina", icon:"🐠", kcal:208, p:20, c:0, g:13},
+    {name:"Camarones", cat:"proteina", icon:"🦐", kcal:99, p:24, c:0.2, g:0.3},
+    {name:"Pavo molido", cat:"proteina", icon:"🦃", kcal:189, p:20, c:0, g:11},
+    {name:"Carne de res magra", cat:"proteina", icon:"🥩", kcal:187, p:26, c:0, g:8.7},
+    {name:"Queso cottage", cat:"proteina", icon:"🧀", kcal:98, p:11, c:3.4, g:4.3},
+    {name:"Yogur griego natural", cat:"proteina", icon:"🥣", kcal:59, p:10, c:3.6, g:0.4},
+    {name:"Tofu firme", cat:"proteina", icon:"🧊", kcal:144, p:15, c:3, g:8},
+    {name:"Lomo de cerdo", cat:"proteina", icon:"🍖", kcal:143, p:26, c:0, g:3.5},
+    {name:"Proteína en polvo (whey)", cat:"proteina", icon:"🥤", kcal:380, p:80, c:8, g:4},
+    {name:"Sardinas en aceite", cat:"proteina", icon:"🐟", kcal:208, p:25, c:0, g:11.5},
+    // Carbohidratos
+    {name:"Arroz integral cocido", cat:"carbohidrato", icon:"🍚", kcal:123, p:2.6, c:26, g:1},
+    {name:"Arroz blanco cocido", cat:"carbohidrato", icon:"🍚", kcal:130, p:2.4, c:28, g:0.3},
+    {name:"Avena", cat:"carbohidrato", icon:"🌾", kcal:389, p:16.9, c:66, g:6.9},
+    {name:"Batata / camote", cat:"carbohidrato", icon:"🍠", kcal:86, p:1.6, c:20, g:0.1},
+    {name:"Papa cocida", cat:"carbohidrato", icon:"🥔", kcal:87, p:1.9, c:20, g:0.1},
+    {name:"Plátano", cat:"carbohidrato", icon:"🍌", kcal:89, p:1.1, c:23, g:0.3},
+    {name:"Manzana", cat:"carbohidrato", icon:"🍎", kcal:52, p:0.3, c:14, g:0.2},
+    {name:"Uvas", cat:"carbohidrato", icon:"🍇", kcal:69, p:0.7, c:18, g:0.2},
+    {name:"Naranja", cat:"carbohidrato", icon:"🍊", kcal:47, p:0.9, c:12, g:0.1},
+    {name:"Fresas", cat:"carbohidrato", icon:"🍓", kcal:32, p:0.7, c:7.7, g:0.3},
+    {name:"Lentejas cocidas", cat:"carbohidrato", icon:"🫘", kcal:116, p:9, c:20, g:0.4},
+    {name:"Frijoles negros cocidos", cat:"carbohidrato", icon:"🫘", kcal:132, p:8.9, c:24, g:0.5},
+    {name:"Garbanzos cocidos", cat:"carbohidrato", icon:"🧆", kcal:164, p:9, c:27, g:2.6},
+    {name:"Quinoa cocida", cat:"carbohidrato", icon:"🌾", kcal:120, p:4.4, c:21, g:1.9},
+    {name:"Pan integral", cat:"carbohidrato", icon:"🍞", kcal:247, p:13, c:41, g:3.4},
+    {name:"Tortilla de maíz", cat:"carbohidrato", icon:"🌽", kcal:218, p:5.7, c:44, g:2.8},
+    {name:"Maíz dulce", cat:"carbohidrato", icon:"🌽", kcal:86, p:3.2, c:19, g:1.2},
+    {name:"Pasta integral cocida", cat:"carbohidrato", icon:"🍝", kcal:124, p:5, c:25, g:1.1},
+    // Grasas
+    {name:"Aguacate", cat:"grasa", icon:"🥑", kcal:160, p:2, c:8.5, g:14.7},
+    {name:"Almendras", cat:"grasa", icon:"🌰", kcal:579, p:21, c:22, g:50},
+    {name:"Nueces", cat:"grasa", icon:"🌰", kcal:654, p:15, c:14, g:65},
+    {name:"Maní / cacahuate", cat:"grasa", icon:"🥜", kcal:567, p:25.8, c:16, g:49},
+    {name:"Mantequilla de maní", cat:"grasa", icon:"🥜", kcal:588, p:25, c:20, g:50},
+    {name:"Aceite de oliva", cat:"grasa", icon:"🫒", kcal:884, p:0, c:0, g:100},
+    {name:"Aceite de coco", cat:"grasa", icon:"🥥", kcal:862, p:0, c:0, g:100},
+    {name:"Semillas de chía", cat:"grasa", icon:"⚫", kcal:486, p:17, c:42, g:31},
+    {name:"Semillas de linaza", cat:"grasa", icon:"🌱", kcal:534, p:18, c:29, g:42},
+    {name:"Queso crema", cat:"grasa", icon:"🧈", kcal:342, p:6, c:4, g:34},
+    // Vegetales
+    {name:"Brócoli", cat:"vegetal", icon:"🥦", kcal:34, p:2.8, c:7, g:0.4},
+    {name:"Espinaca", cat:"vegetal", icon:"🥬", kcal:23, p:2.9, c:3.6, g:0.4},
+    {name:"Pepino", cat:"vegetal", icon:"🥒", kcal:15, p:0.7, c:3.6, g:0.1},
+    {name:"Tomate", cat:"vegetal", icon:"🍅", kcal:18, p:0.9, c:3.9, g:0.2},
+    {name:"Zanahoria", cat:"vegetal", icon:"🥕", kcal:41, p:0.9, c:10, g:0.2},
+    {name:"Pimiento rojo", cat:"vegetal", icon:"🫑", kcal:31, p:1, c:6, g:0.3},
+    {name:"Calabacín", cat:"vegetal", icon:"🥒", kcal:17, p:1.2, c:3.1, g:0.3},
+    {name:"Coliflor", cat:"vegetal", icon:"🥦", kcal:25, p:1.9, c:5, g:0.3},
+    {name:"Lechuga", cat:"vegetal", icon:"🥬", kcal:15, p:1.4, c:2.9, g:0.2},
+    {name:"Champiñones", cat:"vegetal", icon:"🍄", kcal:22, p:3.1, c:3.3, g:0.3},
+    {name:"Berenjena", cat:"vegetal", icon:"🍆", kcal:25, p:1, c:6, g:0.2},
+    {name:"Cebolla", cat:"vegetal", icon:"🧅", kcal:40, p:1.1, c:9, g:0.1},
+    {name:"Apio", cat:"vegetal", icon:"🥬", kcal:16, p:0.7, c:3, g:0.2},
+    {name:"Rábano", cat:"vegetal", icon:"🌱", kcal:16, p:0.7, c:3.4, g:0.1},
+    {name:"Alcachofa", cat:"vegetal", icon:"🌿", kcal:47, p:3.3, c:11, g:0.2},
+    {name:"Puerro", cat:"vegetal", icon:"🧅", kcal:61, p:1.5, c:14, g:0.3},
+    {name:"Leche descremada", cat:"proteina", icon:"🥛", kcal:42, p:3.4, c:5, g:0.2},
+    {name:"Pan de centeno", cat:"carbohidrato", icon:"🍞", kcal:259, p:8.5, c:48, g:3.3},
+    {name:"Piña", cat:"carbohidrato", icon:"🍍", kcal:50, p:0.5, c:13, g:0.1},
+    {name:"Coco rallado", cat:"grasa", icon:"🥥", kcal:660, p:6.9, c:24, g:65},
+  ];
+
+  document.getElementById("statFoods").textContent = foods.length;
+  document.getElementById("statRecipes").textContent = recipes.length;
+
+  // -------- Fondo "arte" único por nombre (sin imágenes externas) --------
+  // Cada alimento/receta obtiene un degradado propio y estable, dentro de un
+  // tono base según su categoría/objetivo, para que ninguna tarjeta quede
+  // en blanco ni repetida, sin depender de fotos ni de conexión a internet.
+  const catHue = { proteina:12, carbohidrato:38, grasa:52, vegetal:132 };
+  const goalHue = { perder:132, ganar:12, mantener:38 };
+
+  function hashHue(str){
+    let h = 0;
+    for(let i=0;i<str.length;i++){ h = str.charCodeAt(i) + ((h<<5)-h); }
+    return Math.abs(h) % 360;
+  }
+
+  function artBackground(name, baseHue){
+    const v = hashHue(name);
+    const h1 = (baseHue + (v % 46) - 23 + 360) % 360;
+    const h2 = (h1 + 28 + (v % 20)) % 360;
+    const posA = 20 + (v % 45);
+    const posB = 60 + (v % 30);
+    return `radial-gradient(circle at ${posA}% 22%, hsl(${h1} 58% 46%) 0%, transparent 62%),`+
+           `radial-gradient(circle at ${posB}% 82%, hsl(${h2} 55% 32%) 0%, transparent 66%),`+
+           `linear-gradient(160deg, hsl(${h1} 38% 24%), hsl(${h2} 34% 14%))`;
+  }
+
+  // -------- Render recetas --------
+  const recipeGrid = document.getElementById("recipeGrid");
+  function renderRecipes(goal){
+    recipeGrid.innerHTML = "";
+    recipes.filter(r => r.goal === goal).forEach(r => {
+      const card = document.createElement("div");
+      card.className = "recipe-card";
+      const total = r.p*4 + r.c*4 + r.g*9;
+      const pPct = Math.round(r.p*4/total*100);
+      const cPct = Math.round(r.c*4/total*100);
+      const gPct = 100 - pPct - cPct;
+      card.innerHTML = `
+        <div class="recipe-head" tabindex="0" role="button" aria-expanded="false">
+          <div class="recipe-head-title">
+            <span class="recipe-icon">${r.icon}</span>
+            <div>
+              <h3>${r.name}</h3>
+              <div class="meta"><span>${r.time}</span><span>${r.kcal} kcal</span></div>
+            </div>
+          </div>
+          <div class="recipe-plus">+</div>
+        </div>
+        <div class="recipe-body">
+          <div class="recipe-hero" style="background-image:${artBackground(r.name, goalHue[r.goal])}">
+            <span class="recipe-hero-icon">${r.icon}</span>
+            <span class="recipe-hero-name">${r.name}</span>
+          </div>
+          <div class="recipe-body-inner">
+            <h4>Macros por porción</h4>
+            <div class="macro-bar">
+              <span class="p" style="width:${pPct}%"></span>
+              <span class="c" style="width:${cPct}%"></span>
+              <span class="g" style="width:${gPct}%"></span>
+            </div>
+            <div class="macro-num-row">
+              <span>P ${r.p}g</span><span>C ${r.c}g</span><span>G ${r.g}g</span>
+            </div>
+            <h4>Ingredientes</h4>
+            <ul>${r.ingredients.map(x => `<li>${x}</li>`).join("")}</ul>
+            <h4>Preparación</h4>
+            <ol>${r.steps.map(x => `<li>${x}</li>`).join("")}</ol>
+          </div>
+        </div>
+      `;
+      const head = card.querySelector(".recipe-head");
+      function toggle(){
+        const isOpen = card.classList.toggle("open");
+        head.setAttribute("aria-expanded", isOpen);
+      }
+      head.addEventListener("click", toggle);
+      head.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); toggle(); } });
+      recipeGrid.appendChild(card);
+    });
+  }
+
+  // -------- Render alimentos --------
+  const foodGrid = document.getElementById("foodGrid");
+  const catLabels = {proteina:"Proteína", carbohidrato:"Carbohidrato", grasa:"Grasa", vegetal:"Vegetal"};
+  function renderFoods(filter){
+    foodGrid.innerHTML = "";
+    foods.filter(f => filter === "todos" || f.cat === filter).forEach(f => {
+      const card = document.createElement("div");
+      card.className = "food-card";
+      card.innerHTML = `
+        <div class="food-card-inner">
+          <div class="food-face food-front" style="background-image:${artBackground(f.name, catHue[f.cat])}">
+            <div>
+              <span class="food-icon">${f.icon}</span>
+              <div class="fcat">${catLabels[f.cat]}</div>
+              <div class="fname">${f.name}</div>
+            </div>
+            <div class="fkcal">${f.kcal}</div>
+          </div>
+          <div class="food-face food-back">
+            <div class="fb-row"><span class="k">Proteína</span><span>${f.p} g</span></div>
+            <div class="fb-row"><span class="k">Carbohidratos</span><span>${f.c} g</span></div>
+            <div class="fb-row"><span class="k">Grasas</span><span>${f.g} g</span></div>
+            <div class="food-hint">por 100 g · toca para volver</div>
+          </div>
+        </div>
+      `;
+      card.addEventListener("click", () => card.classList.toggle("flipped"));
+      foodGrid.appendChild(card);
+    });
+  }
+
+  // -------- Anillos de macros --------
+  const ringP = document.getElementById("ringP");
+  const ringC = document.getElementById("ringC");
+  const ringG = document.getElementById("ringG");
+  const rP = 94, rC = 70, rG = 46;
+  const circP = 2*Math.PI*rP, circC = 2*Math.PI*rC, circG = 2*Math.PI*rG;
+  [[ringP,circP],[ringC,circC],[ringG,circG]].forEach(([el,circ]) => el.style.strokeDasharray = circ);
+  function setRing(el, circ, pct){ el.style.strokeDashoffset = circ - (circ * pct/100); }
+
+  // -------- Calculadora --------
+  let profile = null; // {sex, weight, height, age, activity}
+  let currentSex = "hombre";
+  const kcalEl = document.getElementById("kcalNum");
+  const pctEls = { p: document.getElementById("pctP"), c: document.getElementById("pctC"), g: document.getElementById("pctG") };
+  const gramEls = { p: document.getElementById("gramsP"), c: document.getElementById("gramsC"), g: document.getElementById("gramsG") };
+
+  document.getElementById("sexToggleGroup").addEventListener("click", e => {
+    const btn = e.target.closest("button[data-sex]");
+    if(!btn) return;
+    currentSex = btn.dataset.sex;
+    document.querySelectorAll("#sexToggleGroup button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+  });
+
+  function computeTDEE(p){
+    const bmr = p.sex === "hombre"
+      ? 10*p.weight + 6.25*p.height - 5*p.age + 5
+      : 10*p.weight + 6.25*p.height - 5*p.age - 161;
+    return bmr * p.activity;
+  }
+
+  function currentGoalKey(){
+    return document.querySelector(".goal-btn.active").dataset.goal;
+  }
+
+  function renderMacros(key){
+    const g = goals[key];
+
+    if(!profile){
+      // Sin datos del usuario todavía: todo en cero
+      setRing(ringP, circP, 0);
+      setRing(ringC, circC, 0);
+      setRing(ringG, circG, 0);
+      kcalEl.textContent = "0";
+      kcalEl.classList.add("pending");
+      ["p","c","g"].forEach(k => {
+        pctEls[k].textContent = "—";
+        pctEls[k].classList.add("pending");
+        gramEls[k].textContent = "";
+        gramEls[k].classList.add("pending");
+      });
+      document.getElementById("goalNote").textContent = pendingNote;
+      renderRecipes(key);
+      return;
+    }
+
+    // Con datos del usuario: valores reales
+    setRing(ringP, circP, g.p);
+    setRing(ringC, circC, g.c);
+    setRing(ringG, circG, g.g);
+
+    const tdee = computeTDEE(profile);
+    const kcal = Math.round(tdee * g.mult);
+    const note = g.note + " Calculado con tu TDEE personal (" + Math.round(tdee) + " kcal de mantenimiento).";
+
+    kcalEl.textContent = kcal;
+    kcalEl.classList.remove("pending");
+    document.getElementById("goalNote").textContent = note;
+
+    const gramsP = Math.round(kcal * g.p/100 / 4);
+    const gramsC = Math.round(kcal * g.c/100 / 4);
+    const gramsG = Math.round(kcal * g.g/100 / 9);
+
+    pctEls.p.textContent = g.p + "%"; pctEls.p.classList.remove("pending");
+    pctEls.c.textContent = g.c + "%"; pctEls.c.classList.remove("pending");
+    pctEls.g.textContent = g.g + "%"; pctEls.g.classList.remove("pending");
+    gramEls.p.textContent = gramsP + " g"; gramEls.p.classList.remove("pending");
+    gramEls.c.textContent = gramsC + " g"; gramEls.c.classList.remove("pending");
+    gramEls.g.textContent = gramsG + " g"; gramEls.g.classList.remove("pending");
+
+    renderRecipes(key);
+  }
+
+  document.getElementById("goalNav").addEventListener("click", e => {
+    const btn = e.target.closest(".goal-btn");
+    if(!btn) return;
+    document.querySelectorAll(".goal-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    renderMacros(btn.dataset.goal);
+  });
+
+  document.getElementById("calcBtn").addEventListener("click", () => {
+    const weight = parseFloat(document.getElementById("inpWeight").value);
+    const height = parseFloat(document.getElementById("inpHeight").value);
+    const age = parseFloat(document.getElementById("inpAge").value);
+    const activity = parseFloat(document.getElementById("inpActivity").value);
+    const resultEl = document.getElementById("calcResult");
+
+    if(!weight || !height || !age || weight <= 0 || height <= 0 || age <= 0){
+      resultEl.textContent = "Revisa tus datos: peso, estatura y edad deben ser números válidos.";
+      resultEl.classList.remove("filled");
+      return;
+    }
+
+    profile = { sex: currentSex, weight, height, age, activity };
+    const tdee = Math.round(computeTDEE(profile));
+    resultEl.textContent = "Tu mantenimiento estimado es de " + tdee + " kcal/día. Los anillos ya muestran tus macros según el objetivo elegido.";
+    resultEl.classList.add("filled");
+
+    renderMacros(currentGoalKey());
+  });
+
+  // -------- Filtro de alimentos --------
+  document.getElementById("chipRow").addEventListener("click", e => {
+    const chip = e.target.closest(".chip");
+    if(!chip) return;
+    document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+    chip.classList.add("active");
+    renderFoods(chip.dataset.cat);
+  });
+
+  // -------- Inicio --------
+  requestAnimationFrame(() => {
+    renderMacros("perder");
+    renderFoods("todos");
+  });
+</script>
 </body>
 </html>
