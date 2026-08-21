@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HEAL MIND — Ingresar</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Estilos y Favicon -->
+  <link rel="stylesheet" href="inicio.css">
+  <link rel="icon" href="HM-icono.ico">
+</head>
+<body>
+
+  <a href="#ingresar" class="skip-link">Saltar al contenido</a>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">HEAL MIND</a>
+  </nav>
+
+  <main id="contenido">
+
+    <!-- Sección de ingreso / HERO con video -->
+    <section class="hero" id="ingresar">
+      <div class="hero-media">
+        <video class="hero-video" autoplay muted loop playsinline poster="assets/panel-ejercicios.jpg">
+          <source src="assets/hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-scrim"></div>
+      </div>
+
+      <div class="auth-wrap">
+        <div class="auth-intro">
+          <h1 class="display">HEAL MIND</h1>
+          <p>Inicia sesión para continuar tu rutina de entrenamiento y bienestar emocional.</p>
+
+          <ul class="auth-points">
+            <li><span class="pt-mark mono">01</span>Rutinas guiadas cada día</li>
+            <li><span class="pt-mark mono">02</span>Seguimiento de tu progreso</li>
+            <li><span class="pt-mark mono">03</span>Acompañamiento emocional</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="scroll-cue mono">
+        <span>SIGUE BAJANDO</span>
+        <div class="stem"></div>
+      </div>
+    </section>
+
+    <div id="origenes"></div>
+
+    <!-- Sección 1 — Ejercicios -->
+    <a href="ejercicio.html" class="panel-link">
+      <section class="panel" style="--sky1:#1c130d; --sky2:#6b4023;">
+        <div class="panel-media" data-image="assets/panel-ejercicios.jpg"></div>
+        <span class="panel-tag reveal-tag mono">Explorar <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        <div class="panel-content">
+          <h2 class="display reveal">EJERCICIOS</h2>
+          <p class="reveal">Somos una plataforma dedicada a impulsar cambios positivos en la humanidad mediante la tecnología. Transformamos vidas ayudándote a construir una mente fuerte y un cuerpo saludable mediante el acompañamiento diario.</p>
+        </div>
+      </section>
+    </a>
+
+    <!-- Sección 2 — Libros -->
+    <a href="libreriahm.html" class="panel-link">
+      <section class="panel" style="--sky1:#140d08; --sky2:#b5652e;">
+        <div class="panel-media" data-image="assets/panel-libros.jpg"></div>
+        <span class="panel-tag reveal-tag mono">Explorar <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        <div class="panel-content">
+          <h2 class="display reveal">LIBROS</h2>
+          <p class="reveal">Queremos que tu experiencia en nuestra aplicación convierta la constancia en un estilo de vida divertido. Te brindamos las herramientas necesarias para superar el estrés, entrenar con enfoque y lograr una transformación real.</p>
+        </div>
+      </section>
+    </a>
+
+    <!-- Sección 3 — Alimentación -->
+    <a href="alimentacion.html" class="panel-link">
+      <section class="panel" style="--sky1:#1c130d; --sky2:#8a5228;">
+        <div class="panel-media" data-image="assets/panel-alimentacion.jpg"></div>
+        <span class="panel-tag reveal-tag mono">Explorar <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        <div class="panel-content">
+          <div class="region reveal">ALIMENTACION</div>
+          <h2 class="display reveal">Cuerpo y mente alineados</h2>
+          <p class="reveal">Combinamos entrenamientos físicos, ejercicios de enfoque mental y seguimiento de hábitos diarios para que alcances el máximo equilibrio en tu rutina.</p>
+        </div>
+      </section>
+    </a>
+
+    <!-- Sección Proceso -->
+
+
+    <section class="closing">
+      <h3 class="display">Tu transformación te está esperando</h3>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="mono">CAMBIA TU VIDA — HEAL MIND · 2026</span>
+    <span>
+      <a href="politica-privacidad.html">Política y privacidad</a>
+    </span>
+  </footer>
+
+  <script>
+  (() => {
+    const panels = document.querySelectorAll('.panel-media');
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    panels.forEach((panel) => {
+      const img = panel.getAttribute('data-image');
+      if (img) {
+        panel.style.backgroundImage = `linear-gradient(var(--sky1), var(--sky2)), url('${img}')`;
+        panel.style.backgroundSize = 'cover, cover';
+        panel.style.backgroundPosition = 'center, center';
+        panel.style.backgroundBlendMode = 'multiply, normal';
+      }
+    });
+
+    let ticking = false;
+    const heroVideo = document.querySelector('.hero-media');
+    const hero = document.querySelector('.hero');
+
+    function update() {
+      if (!prefersReduced) {
+        panels.forEach((panel) => {
+          const rect = panel.getBoundingClientRect();
+          const centerOffset = rect.top + rect.height / 2 - window.innerHeight / 2;
+          const shift = Math.max(-40, Math.min(40, centerOffset * 0.06));
+          panel.style.transform = `translateY(${shift}px) scale(1.08)`;
+        });
+
+        if (hero && heroVideo) {
+          const heroRect = hero.getBoundingClientRect();
+          const progress = Math.min(1, Math.max(0, -heroRect.top / (heroRect.height * 0.9)));
+          heroVideo.style.transform = `scale(${1 + progress * 0.12})`;
+          heroVideo.style.filter = `brightness(${1 - progress * 0.35})`;
+        }
+      }
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+
+    if (!prefersReduced && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.transition = 'opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1)';
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = entry.target.classList.contains('reveal-tag')
+              ? 'translate(0,0) rotate(-4deg) scale(1)'
+              : 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.4 });
+      document.querySelectorAll('.reveal, .reveal-tag').forEach((el) => io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal, .reveal-tag').forEach((el) => {
+        el.style.opacity = 1;
+        el.style.transform = 'none';
+      });
+    }
+  })();
+  </script>
+</body>
+</html>

@@ -3,160 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HEAL MIND — Ingresar</title>
+<title>HEAL MIND — Tu transformación física y mental</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="index-style.css">
-<link rel="icon" href="HM-icono.ico">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,500;1,400&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing.css">
 </head>
 <body>
 
-<a href="#ingresar" class="skip-link">Saltar al contenido</a>
+<a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-<nav class="navbar">
-  <a href="landing.html" class="nav-logo">HEAL MIND</a>
-
-</nav>
+<div id="roastbar" aria-hidden="true">
+  <span class="brand display">HEAL MIND</span>
+  <svg viewBox="0 0 600 40" preserveAspectRatio="none">
+    <path id="roast-track" d="M0,32 C60,30 100,26 150,20 C210,13 260,9 320,9 C380,9 430,13 480,8 C520,4 560,3 600,3"
+      fill="none" stroke="rgba(241,231,216,0.14)" stroke-width="2"/>
+    <path id="roast-path" d="M0,32 C60,30 100,26 150,20 C210,13 260,9 320,9 C380,9 430,13 480,8 C520,4 560,3 600,3"
+      fill="none" stroke="#b5652e" stroke-width="2"/>
+    <circle id="roast-dot" r="4" fill="#f1e7d8"/>
+  </svg>
+  <a href="login.html" class="cta">INICIAR SESIÓN</a>
+</div>
 
 <main id="contenido">
 
-  <!-- Sección de ingreso -->
-  <section class="hero" id="ingresar">
-    <div class="auth-wrap">
-      <div class="auth-intro">
-        <h1 class="display">HEAL MIND</h1>
-        <p>Inicia sesión para continuar tu rutina de entrenamiento y bienestar emocional.</p>
+  <section class="hero">
+    <video muted autoplay loop playsinline>
+      <source src="WhatsApp Video 2026-08-11 at 6.47.15 PM.mp4" type="video/mp4">
+    </video>
+    <div class="capa"></div>
 
-        <ul class="auth-points">
-          <li><span class="pt-mark mono">01</span>Rutinas guiadas cada día</li>
-          <li><span class="pt-mark mono">02</span>Seguimiento de tu progreso</li>
-          <li><span class="pt-mark mono">03</span>Acompañamiento emocional</li>
-        </ul>
-      </div>
-
-  
-   
-
-    <div class="scroll-cue mono">
-      <span>SIGUE BAJANDO</span>
-      <div class="stem"></div>
-    </div>
+    <h1 class="display">HEAL MIND<br><em>Tu transformación física y mental</em></h1>
+    <p>Diseñamos un sistema guiado por tecnología para desarrollar disciplina, hábitos saludables y bienestar emocional en tu día a día de forma interactiva y sostenible.</p>
+ 
   </section>
 
   <div id="origenes"></div>
 
   <!-- Sección 1 — Quiénes somos -->
-  <a href="ejercicio.html" class="panel-link">
-   
-    <section class="panel" style="--sky1:#1c130d; --sky2:#6b4023;">
-      <div class="panel-media"></div>
-      <div class="panel-content">
-        <h2 class="display reveal">EJERCICIOS</h2>
-        <p class="reveal">Somos una plataforma dedicada a impulsar cambios positivos en la humanidad mediante la tecnología. Transformamos vidas ayudándote a construir una mente fuerte y un cuerpo saludable mediante el acompañamiento diario.</p>
-      </div>
-    </section>
-  </a>
+  <section class="panel" style="--sky1:#1e2b1c; --sky2:#4c6b3f;">
+    <div class="panel-media"></div>
+    <div class="panel-content">
+      <div class="region reveal">Conoce más de nosotros</div>
+      <h2 class="display reveal">HEAL MIND</h2>
+      <p class="reveal">Somos una plataforma dedicada a impulsar cambios positivos en la humanidad mediante la tecnología. Transformamos vidas ayudándote a construir una mente fuerte y un cuerpo saludable mediante el acompañamiento diario.</p>
+    </div>
+  </section>
 
-  <!-- Sección 2 — Nuestro propósito -->
- <a href="libreriahm.html">
-    <section class="panel" style="--sky1:#140d08; --sky2:#b5652e;">
-      <div class="panel-media"></div>
-      <div class="panel-content">
-        <h2 class="display reveal">LIBROS</h2>
-        <p class="reveal">Queremos que tu experiencia en nuestra aplicación convierta la constancia en un estilo de vida divertido. Te brindamos las herramientas necesarias para superar el estrés, entrenar con enfoque y lograr una transformación real.</p>
-      </div>
-    </section>
-  </a>
+  <!-- Sección 2 — Nuestro propósito (con foto de fondo, oscurecida para legibilidad) -->
+  <section class="panel" data-photo style="--sky1:#2b1e14; --sky2:#a0602f; --img:url('runners-sunset.jpg');">
+    <div class="panel-media"></div>
+    <div class="panel-content">
+      <div class="region reveal">¿Qué queremos para ti?</div>
+      <h2 class="display reveal">Disciplina con propósito</h2>
+      <p class="reveal">Queremos que tu experiencia en nuestra aplicación convierta la constancia en un estilo de vida divertido. Te brindamos las herramientas necesarias para superar el estrés, entrenar con enfoque y lograr una transformación real.</p>
+    </div>
+  </section>
 
   <!-- Sección 3 — Enfoque integral -->
-  <a href="alimentacion.html" class="panel-link">
-    <section class="panel" style="--sky1:#1c130d; --sky2:#8a5228;">
-      <div class="panel-media"></div>
-      <div class="panel-content">
-        <div class="region reveal">ALIMENTACION</div>
-        <h2 class="display reveal">Cuerpo y mente alineados</h2>
-        <p class="reveal">Combinamos entrenamientos físicos, ejercicios de enfoque mental y seguimiento de hábitos diarios para que alcances el máximo equilibrio en tu rutina.</p>
+  <section class="panel" style="--sky1:#1a1d2b; --sky2:#4a5a8f;">
+    <div class="panel-media"></div>
+    <div class="panel-content">
+      <div class="region reveal">Bienestar completo</div>
+      <h2 class="display reveal">Cuerpo y mente alineados</h2>
+      <p class="reveal">Combinamos entrenamientos físicos, ejercicios de enfoque mental y seguimiento de hábitos diarios para que alcances el máximo equilibrio en tu rutina.</p>
+    </div>
+  </section>
+
+  <section class="process" id="proceso">
+    <div class="head">
+      <h2 class="display">Cuatro pasos para transformar tu vida</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num mono">01</div>
+        <h3>Evaluación inicial</h3>
+        <p>Analizamos tus metas físicas y tu estado actual de bienestar para diseñar tu plan a medida.</p>
       </div>
-    </section>
-  </a>
-
-  <!-- Sección Proceso -->
-  <a href="psicologia.html" class="panel-link">
-    <section class="panel" id="proceso" style="--sky1:#140d08; --sky2:#3a2416;">
-      <div class="panel-media"></div>
-      <div class="panel-content" style="max-width:34rem;">
-        <div class="region reveal">Tu camino al cambio</div>
-        <h2 class="display reveal">Cuatro pasos para transformar tu vida</h2>
-        <p class="reveal">Evaluamos tus metas, te acompañamos a entrenar y enfocarte, medimos tu progreso día a día y te ayudamos a consolidar hábitos duraderos.</p>
+      <div class="step">
+        <div class="num mono">02</div>
+        <h3>Entrena y enfócate</h3>
+        <p>Accede a rutinas diarias de ejercicio y ejercicios de calma mental adaptados a tu tiempo.</p>
       </div>
-    </section>
-  </a>
+      <div class="step">
+        <div class="num mono">03</div>
+        <h3>Mide tu progreso</h3>
+        <p>Registra tus hábitos y mantén tus rachas de constancia directamente dentro de la app.</p>
+      </div>
+      <div class="step">
+        <div class="num mono">04</div>
+        <h3>Consolida tus hábitos</h3>
+        <p>Convierte la disciplina en un estilo de vida natural, duradero y motivador.</p>
+      </div>
+    </div>
+  </section>
 
-
-  <section class="closing">
-    <h3 class="display">Tu transformación te está esperando</h3>
+  <section class="quote">
+    <blockquote>"Es la primera vez que logro mantener una rutina de ejercicio y meditación por más de tres meses seguidos. La app hace que la disciplina sea divertida."</blockquote>
+    <cite class="mono">— Mariana R., usuaria activa de HEAL MIND</cite>
   </section>
 
 </main>
 
 <footer>
-  <span class="mono">CAMBIA TU VIDA — HEAL MIND · 2026</span>
-  <span>
-    <a href="politica-privacidad.html">Política y privacidad</a>
+  <div class="foot-bottom">
+    <span class="mono">CAMBIA TU VIDA — HEAL MIND · 2026</span>
+    <span>
+      <a href="politica-privacidad.html">Política y privacidad</a> · <a href="#">Contacto</a>
+    </span>
+  </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
-(() => {
-  const panels = document.querySelectorAll('.panel-media');
+  gsap.registerPlugin(ScrollTrigger);
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ---- Un solo listener de scroll: parallax ----
-  let ticking = false;
-
-  function update() {
-    if (!prefersReduced) {
-      panels.forEach((panel) => {
-        const rect = panel.getBoundingClientRect();
-        const centerOffset = rect.top + rect.height / 2 - window.innerHeight / 2;
-        const shift = Math.max(-40, Math.min(40, centerOffset * 0.06));
-        panel.style.transform = `translateY(${shift}px) scale(1.08)`;
-      });
-    }
-    ticking = false;
-  }
-
-  function onScroll() {
-    if (!ticking) {
-      requestAnimationFrame(update);
-      ticking = true;
-    }
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  update();
-
   // ---- Revelado de texto por sección ----
-  if (!prefersReduced && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.transition = 'opacity .9s ease, transform .9s ease';
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.4 });
-    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
-  } else {
-    document.querySelectorAll('.reveal').forEach((el) => { el.style.opacity = 1; el.style.transform = 'none'; });
-  }
-})();
+  document.querySelectorAll('.panel, .process, .quote').forEach((section) => {
+    const items = section.querySelectorAll('.reveal, .head, blockquote, cite, .steps .step');
+    if (!items.length) return;
+    gsap.to(items, {
+      opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.08,
+      scrollTrigger: { trigger: section, start: 'top 68%', toggleActions: 'play none none reverse' }
+    });
+  });
+  gsap.set('.process .head, .process .step, .quote blockquote, .quote cite', { opacity: 0, y: 24 });
+
+  // ---- Curva de progreso como barra de scroll (elemento firma) ----
+  const path = document.getElementById('roast-path');
+  const dot = document.getElementById('roast-dot');
+  const len = path.getTotalLength();
+  path.style.strokeDasharray = len;
+  path.style.strokeDashoffset = len;
+
+  ScrollTrigger.create({
+    trigger: 'main',
+    start: 'top top',
+    end: 'bottom bottom',
+    scrub: 0.3,
+    onUpdate: (self) => {
+      const p = self.progress;
+      path.style.strokeDashoffset = len * (1 - p);
+      const pt = path.getPointAtLength(len * p);
+      dot.setAttribute('cx', pt.x);
+      dot.setAttribute('cy', pt.y);
+    }
+  });
 </script>
 </body>
 </html>
-
-
-
-
