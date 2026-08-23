@@ -32,7 +32,7 @@
     outline-offset: 3px;
   }
 
-  /* ---------- Roastbar (signature top bar + scroll-progress curve) ---------- */
+  /* ---------- Roastbar (top bar with brand + menu) ---------- */
   #roastbar{
     position:fixed;
     top:0; left:0; width:100%;
@@ -54,12 +54,6 @@
     white-space:nowrap;
     flex:0 0 auto;
   }
-  #roastbar svg{
-    flex:1 1 auto;
-    height:22px;
-    max-width:460px;
-    display:block;
-  }
   #roastbar .cta{
     flex:0 0 auto;
     border:1px solid var(--line);
@@ -77,7 +71,6 @@
     border-color:var(--copper);
   }
   @media (max-width:700px){
-    #roastbar svg{ display:none; }
     #roastbar{ gap:1rem; padding:1rem 6%; }
   }
 
@@ -357,22 +350,64 @@
   footer {
     background: var(--bg2);
     border-top: 1px solid var(--line);
-    padding: 2.2rem 5%;
+    padding: 4.5rem 8vw 2rem;
   }
+  footer a {
+    color: var(--ink-dim);
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--copper); }
+  footer .mono{ color:var(--ink-dim); font-size:0.78rem; }
+
+  .foot-top{
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+  }
+  @media (max-width: 760px){
+    .foot-top{ grid-template-columns: 1fr; gap: 2.4rem; }
+  }
+
+  .foot-col{
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .foot-col a{ font-size: 0.92rem; }
+  .foot-col h4{
+    color: var(--ink);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+  }
+  .foot-brand .brand{
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .foot-brand p{
+    color: var(--ink-dim);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    max-width: 32ch;
+  }
+  .foot-address{
+    color: var(--ink-dim);
+    font-size: 0.92rem;
+  }
+
   .foot-bottom{
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
   }
-  footer a {
-    color: var(--ink-dim);
-    margin-right: 1.5rem;
-    transition: color 0.2s;
-  }
-  footer a:hover { color: var(--ink); }
-  footer .mono{ color:var(--ink-dim); font-size:0.78rem; }
 
   #page-loader{
   position: fixed;
@@ -417,11 +452,11 @@
 }
 
 .logo-redes {
-  padding: 10px;
+  padding: 0;
   display: flex;
+  justify-content: flex-start;
   gap: 1rem;
-  
-  
+  margin-top: 0.4rem;
 }
 
 .redes {

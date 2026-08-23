@@ -15,13 +15,6 @@
 
 <div id="roastbar" aria-hidden="true">
   <span class="brand display">HEAL MIND</span>
-  <svg viewBox="0 0 600 40" preserveAspectRatio="none">
-    <path id="roast-track" d="M0,32 C60,30 100,26 150,20 C210,13 260,9 320,9 C380,9 430,13 480,8 C520,4 560,3 600,3"
-      fill="none" stroke="rgba(241,231,216,0.14)" stroke-width="2"/>
-    <path id="roast-path" d="M0,32 C60,30 100,26 150,20 C210,13 260,9 320,9 C380,9 430,13 480,8 C520,4 560,3 600,3"
-      fill="none" stroke="#b5652e" stroke-width="2"/>
-    <circle id="roast-dot" r="4" fill="#f1e7d8"/>
-  </svg>
 
   <!-- Menú hamburguesa (reemplaza el botón de inicio de sesión) -->
   <div class="menu-wrap">
@@ -120,7 +113,37 @@
 
 </main>
 
-<footer>
+<footer id="redes">
+  <div class="foot-top">
+
+    <div class="foot-col foot-brand">
+      <span class="brand display">HEAL MIND</span>
+      <p>Un sistema guiado por tecnología para construir disciplina, hábitos saludables y bienestar emocional, un día a la vez.</p>
+      <div class="logo-redes">
+        <a href="" aria-label="Facebook"><img class="redes" src="img-redes/facebook.jpg" alt="Facebook"></a>
+        <a href="https://www.instagram.com/heal_mind.oficial?igsi=MTR0bTYzNjA4c3ZkbQ==" aria-label="Instagram"><img class="redes" src="img-redes/instagram.jpg" alt="Instagram"></a>
+        <a href="" aria-label="Twitter"><img class="redes" src="img-redes/twiter.jpg" alt="Twitter"></a>
+        <a href="" aria-label="Correo"><img class="redes" src="img-redes/gmail.jpg" alt="Correo"></a>
+      </div>
+    </div>
+
+    <div class="foot-col">
+      <h4 class="mono">Enlaces</h4>
+      <a href="#origenes">Nosotros</a>
+      <a href="#proceso">Cómo funciona</a>
+      <a href="login.html">Iniciar sesión</a>
+      <a href="politica-privacidad.html">Política y privacidad</a>
+    </div>
+
+    <div class="foot-col">
+      <h4 class="mono">Contacto</h4>
+      <a href="mailto:contacto@healmind.com">contacto@healmind.com</a>
+      <a href="tel:+573000000000">+57 300 000 0000</a>
+      <span class="foot-address">Medellín, Colombia</span>
+    </div>
+
+  </div>
+
   <div class="foot-bottom">
     <span class="mono">CAMBIA TU VIDA — HEAL MIND · 2026</span>
     <span>
@@ -128,15 +151,6 @@
     </span>
   </div>
 </footer>
-
-
-<div class="logo-redes" id="redes">
-<a href="">  <img class="redes" src="img-redes/facebook.jpg" alt=""></a>
-<a href="https://www.instagram.com/heal_mind.oficial?igsi=MTR0bTYzNjA4c3ZkbQ==">  <img class="redes" src="img-redes/instagram.jpg" alt=""></a>
-<a href="">  <img class="redes" src="img-redes/twiter.jpg" alt=""></a>
-<a href="">  <img class="redes" src="img-redes/gmail.jpg" alt=""></a>
-
-</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -154,27 +168,6 @@
     });
   });
   gsap.set('.process .head, .process .step, .quote blockquote, .quote cite', { opacity: 0, y: 24 });
-
-  // ---- Curva de progreso como barra de scroll (elemento firma) ----
-  const path = document.getElementById('roast-path');
-  const dot = document.getElementById('roast-dot');
-  const len = path.getTotalLength();
-  path.style.strokeDasharray = len;
-  path.style.strokeDashoffset = len;
-
-  ScrollTrigger.create({
-    trigger: 'main',
-    start: 'top top',
-    end: 'bottom bottom',
-    scrub: 0.3,
-    onUpdate: (self) => {
-      const p = self.progress;
-      path.style.strokeDashoffset = len * (1 - p);
-      const pt = path.getPointAtLength(len * p);
-      dot.setAttribute('cx', pt.x);
-      dot.setAttribute('cy', pt.y);
-    }
-  });
 
   // ---- Menú hamburguesa ----
   const menuBtn = document.getElementById('menu-btn');
