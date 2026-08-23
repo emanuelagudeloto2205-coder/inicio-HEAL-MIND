@@ -22,7 +22,22 @@
       fill="none" stroke="#b5652e" stroke-width="2"/>
     <circle id="roast-dot" r="4" fill="#f1e7d8"/>
   </svg>
-  <a href="login.html" class="cta">INICIAR SESIÓN</a>
+
+  <!-- Menú hamburguesa (reemplaza el botón de inicio de sesión) -->
+  <div class="menu-wrap">
+    <button id="menu-btn" class="hamburger" aria-expanded="false" aria-controls="menu-panel" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="menu-panel" class="menu-panel">
+      <a href="#origenes">Nosotros</a>
+      <a href="#redes">Contacto</a>
+      <a href="politica-privacidad.html">Política y privacidad</a>
+      <a href="login.html" class="menu-login">Iniciar sesión</a>
+    </nav>
+  </div>
 </div>
 
 <main id="contenido">
@@ -109,12 +124,19 @@
   <div class="foot-bottom">
     <span class="mono">CAMBIA TU VIDA — HEAL MIND · 2026</span>
     <span>
-      <a href="politica-privacidad.html">Política y privacidad</a> · <a href="#">Contacto</a>
+      <a href="politica-privacidad.html">Política y privacidad</a>
     </span>
   </div>
 </footer>
 
 
+<div class="logo-redes" id="redes">
+<a href="">  <img class="redes" src="img-redes/facebook.jpg" alt=""></a>
+<a href="https://www.instagram.com/heal_mind.oficial?igsi=MTR0bTYzNjA4c3ZkbQ==">  <img class="redes" src="img-redes/instagram.jpg" alt=""></a>
+<a href="">  <img class="redes" src="img-redes/twiter.jpg" alt=""></a>
+<a href="">  <img class="redes" src="img-redes/gmail.jpg" alt=""></a>
+
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -153,6 +175,30 @@
       dot.setAttribute('cy', pt.y);
     }
   });
+
+  // ---- Menú hamburguesa ----
+  const menuBtn = document.getElementById('menu-btn');
+  const menuPanel = document.getElementById('menu-panel');
+
+  function closeMenu(){
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuPanel.classList.remove('open');
+  }
+
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = menuPanel.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  // Cierra al hacer click fuera del menú
+  document.addEventListener('click', (e) => {
+    if (!menuPanel.contains(e.target) && e.target !== menuBtn) closeMenu();
+  });
+
+  // Cierra al elegir una opción o al presionar Escape
+  menuPanel.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 </script>
 </body>
 </html>
